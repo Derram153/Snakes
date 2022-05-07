@@ -38,7 +38,7 @@
             // SoloBut
             // 
             this.SoloBut.Location = new System.Drawing.Point(75, 28);
-            this.SoloBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SoloBut.Margin = new System.Windows.Forms.Padding(2);
             this.SoloBut.Name = "SoloBut";
             this.SoloBut.Size = new System.Drawing.Size(150, 41);
             this.SoloBut.TabIndex = 0;
@@ -48,7 +48,7 @@
             // DuoBut
             // 
             this.DuoBut.Location = new System.Drawing.Point(75, 77);
-            this.DuoBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DuoBut.Margin = new System.Windows.Forms.Padding(2);
             this.DuoBut.Name = "DuoBut";
             this.DuoBut.Size = new System.Drawing.Size(150, 41);
             this.DuoBut.TabIndex = 0;
@@ -58,7 +58,7 @@
             // ExitBut
             // 
             this.ExitBut.Location = new System.Drawing.Point(75, 126);
-            this.ExitBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExitBut.Margin = new System.Windows.Forms.Padding(2);
             this.ExitBut.Name = "ExitBut";
             this.ExitBut.Size = new System.Drawing.Size(150, 41);
             this.ExitBut.TabIndex = 0;
@@ -68,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(101, 184);
+            this.button1.Location = new System.Drawing.Point(113, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -86,7 +86,7 @@
             this.Controls.Add(this.ExitBut);
             this.Controls.Add(this.DuoBut);
             this.Controls.Add(this.SoloBut);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
             this.Text = "Snakiez";
             this.ResumeLayout(false);
