@@ -32,7 +32,6 @@
             this.SoloBut = new System.Windows.Forms.Button();
             this.DuoBut = new System.Windows.Forms.Button();
             this.ExitBut = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SoloBut
@@ -66,15 +65,6 @@
             this.ExitBut.UseVisualStyleBackColor = true;
             this.ExitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(113, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,7 +72,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(286, 287);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ExitBut);
             this.Controls.Add(this.DuoBut);
             this.Controls.Add(this.SoloBut);
@@ -98,7 +87,6 @@
         private System.Windows.Forms.Button SoloBut;
         private System.Windows.Forms.Button DuoBut;
         private System.Windows.Forms.Button ExitBut;
-        private System.Windows.Forms.Button button1;
     }
 }
 
