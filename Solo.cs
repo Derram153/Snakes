@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Threading;
 namespace Snakes
 {
     public partial class Solo : Form
@@ -17,6 +17,8 @@ namespace Snakes
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
 
+        //передача данных
+        public static int balance = 0; 
         public Solo()
         {
             character.Location = new Point(x, y);
@@ -45,6 +47,33 @@ namespace Snakes
                 g.DrawLine(new Pen(Brushes.RosyBrown, 5), new Point(80, 100 * i + i * 5), new Point(1458, 100 * i + i * 5));
         }
 
+        private void shopButton_Click(object sender, EventArgs e)
+        {
+            
+            Form shop = new Shop();
+            if (Application.OpenForms.OfType<Shop>().Count() == 1)
+                Application.OpenForms.OfType<Shop>().First().Close();
+            shop.Show();
+        }
+
+        private async void reload_Click(object sender, EventArgs e)
+        {
+            bullet1.Hide();
+            bullet2.Hide();
+            bullet3.Hide();
+            bullet4.Hide();
+            bullet5.Hide();
+            reload.Hide();
+            await Task.Delay(5000);
+            reload.Show();
+            bullet1.Show();
+            bullet2.Show();
+            bullet3.Show();
+            bullet4.Show();
+            bullet5.Show();
+        }
+
+        private void AddMoney_Click(object sender, EventArgs e)
         private void moveTimerEvent(object sender, EventArgs e)
         {
             if ((moveDown == true) && (character.Bottom <= 450))
@@ -52,7 +81,15 @@ namespace Snakes
             if ((moveUp == true) && (character.Top >= 100))
                 character.Top -= 105;
 
+            balance += 1000;
+            money.Text = balance.ToString();
+        }
 
+
+        //событие для закрытия формы
+        private void Solo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)

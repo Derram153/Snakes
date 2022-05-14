@@ -79,6 +79,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EmbeddedResource Include="Shop.resx">
       <DependentUpon>Shop.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +123,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\снайперка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\автомат2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пуля.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пуля1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
