@@ -77,6 +77,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Shop.resx">
       <DependentUpon>Shop.cs</DependentUpon>
@@ -96,6 +97,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Character.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Didzhey_eban.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cherep_Skull.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Didzhey_eban1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
