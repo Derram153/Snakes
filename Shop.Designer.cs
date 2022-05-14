@@ -28,35 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.price1 = new System.Windows.Forms.Label();
+            this.price2 = new System.Windows.Forms.Label();
             this.rifle = new System.Windows.Forms.Button();
             this.automat = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.moneyshop = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // price1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(159, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "2400";
+            this.price1.AutoSize = true;
+            this.price1.Location = new System.Drawing.Point(159, 41);
+            this.price1.Name = "price1";
+            this.price1.Size = new System.Drawing.Size(31, 13);
+            this.price1.TabIndex = 2;
+            this.price1.Text = "2400";
             // 
-            // label2
+            // price2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "3600";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.price2.AutoSize = true;
+            this.price2.Location = new System.Drawing.Point(159, 123);
+            this.price2.Name = "price2";
+            this.price2.Size = new System.Drawing.Size(31, 13);
+            this.price2.TabIndex = 3;
+            this.price2.Text = "3600";
+            this.price2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // rifle
             // 
             this.rifle.BackColor = System.Drawing.SystemColors.Control;
             this.rifle.BackgroundImage = global::Snakes.Properties.Resources.снайперка;
+            this.rifle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.rifle.Location = new System.Drawing.Point(12, 105);
             this.rifle.Name = "rifle";
             this.rifle.Size = new System.Drawing.Size(141, 48);
@@ -66,19 +69,41 @@
             // automat
             // 
             this.automat.BackgroundImage = global::Snakes.Properties.Resources.автомат2;
+            this.automat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.automat.Location = new System.Drawing.Point(12, 23);
             this.automat.Name = "automat";
             this.automat.Size = new System.Drawing.Size(141, 48);
             this.automat.TabIndex = 0;
             this.automat.UseVisualStyleBackColor = true;
+            this.automat.Click += new System.EventHandler(this.automat_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(256, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Ваши деньги:";
+            // 
+            // moneyshop
+            // 
+            this.moneyshop.AutoSize = true;
+            this.moneyshop.Location = new System.Drawing.Point(337, 23);
+            this.moneyshop.Name = "moneyshop";
+            this.moneyshop.Size = new System.Drawing.Size(13, 13);
+            this.moneyshop.TabIndex = 5;
+            this.moneyshop.Text = "0";
             // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 221);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.moneyshop);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.price2);
+            this.Controls.Add(this.price1);
             this.Controls.Add(this.rifle);
             this.Controls.Add(this.automat);
             this.Name = "Shop";
@@ -92,7 +117,9 @@
 
         private System.Windows.Forms.Button automat;
         private System.Windows.Forms.Button rifle;
+        private System.Windows.Forms.Label price1;
+        private System.Windows.Forms.Label price2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label moneyshop;
     }
 }

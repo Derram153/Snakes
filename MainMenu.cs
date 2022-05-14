@@ -26,7 +26,12 @@ namespace Snakes
         {
             Form game = new Solo();
             game.Show();
-            this.Hide();
+            Hide();
+        }
+
+        //событие для закрытия формы
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

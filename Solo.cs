@@ -12,18 +12,24 @@ namespace Snakes
 {
     public partial class Solo : Form
     {
+        //передача данных
+        public static int balance = 0; 
         public Solo()
         {
+            //balance = Convert.ToInt32(money.Text);
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             Form shop = new Shop();
+            if (Application.OpenForms.OfType<Shop>().Count() == 1)
+                Application.OpenForms.OfType<Shop>().First().Close();
             shop.Show();
         }
 
-        private void reload_Click(object sender, EventArgs e)
+        private async void reload_Click(object sender, EventArgs e)
         {
             bullet1.Hide();
             bullet2.Hide();
@@ -31,13 +37,26 @@ namespace Snakes
             bullet4.Hide();
             bullet5.Hide();
             reload.Hide();
-            Thread.Sleep(4000);
+            await Task.Delay(5000);
             reload.Show();
             bullet1.Show();
             bullet2.Show();
             bullet3.Show();
             bullet4.Show();
             bullet5.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            balance += 1000;
+            money.Text = balance.ToString();
+        }
+
+
+        //событие для закрытия формы
+        private void Solo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
