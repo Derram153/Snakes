@@ -19,7 +19,8 @@ namespace Snakes
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form shop = new Shop();
+            shop.Show();
         }
     }
 }
