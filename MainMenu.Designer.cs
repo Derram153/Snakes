@@ -30,29 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.SoloBut = new System.Windows.Forms.Button();
-            this.DuoBut = new System.Windows.Forms.Button();
             this.ExitBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SoloBut
             // 
-            this.SoloBut.Location = new System.Drawing.Point(75, 28);
+            this.SoloBut.Location = new System.Drawing.Point(75, 81);
             this.SoloBut.Margin = new System.Windows.Forms.Padding(2);
             this.SoloBut.Name = "SoloBut";
             this.SoloBut.Size = new System.Drawing.Size(150, 41);
             this.SoloBut.TabIndex = 0;
-            this.SoloBut.Text = "Игра одному";
+            this.SoloBut.Text = "Играть";
             this.SoloBut.UseVisualStyleBackColor = true;
-            // 
-            // DuoBut
-            // 
-            this.DuoBut.Location = new System.Drawing.Point(75, 77);
-            this.DuoBut.Margin = new System.Windows.Forms.Padding(2);
-            this.DuoBut.Name = "DuoBut";
-            this.DuoBut.Size = new System.Drawing.Size(150, 41);
-            this.DuoBut.TabIndex = 0;
-            this.DuoBut.Text = "Игра вдвоем";
-            this.DuoBut.UseVisualStyleBackColor = true;
+            this.SoloBut.Click += new System.EventHandler(this.SoloBut_Click);
             // 
             // ExitBut
             // 
@@ -73,7 +63,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(286, 287);
             this.Controls.Add(this.ExitBut);
-            this.Controls.Add(this.DuoBut);
             this.Controls.Add(this.SoloBut);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
@@ -85,7 +74,6 @@
         #endregion
 
         private System.Windows.Forms.Button SoloBut;
-        private System.Windows.Forms.Button DuoBut;
         private System.Windows.Forms.Button ExitBut;
     }
 }

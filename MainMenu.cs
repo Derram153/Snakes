@@ -21,5 +21,12 @@ namespace Snakes
         {
             Close();
         }
+
+        private void SoloBut_Click(object sender, EventArgs e)
+        {
+            Form game = new Solo();
+            game.Show();
+            this.Hide();
+        }
     }
 }

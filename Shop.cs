@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Snakes
 {
-    public partial class Duo : Form
+    public partial class Shop : Form
     {
-        public Duo()
+        public Shop()
         {
             InitializeComponent();
         }
