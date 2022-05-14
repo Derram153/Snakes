@@ -23,8 +23,7 @@ namespace Snakes
         {
             character.Location = new Point(x, y);
             InitializeComponent();
-            character.Parent = pictureBox1;
-            
+            character.Parent = Map;
             Image image = Properties.Resources.Character;
             character.Image = image;
             character.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -32,16 +31,10 @@ namespace Snakes
             character.BringToFront();
             
         }
-
         
-        private void ShopButton_Click(object sender, EventArgs e)
+        private void Map_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-        
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            g = pictureBox1.CreateGraphics();
+            g = Map.CreateGraphics();
             g.DrawLine(new Pen(Brushes.RosyBrown, 10), new Point(80, 0), new Point(80, 660));
             for (int i = 1; i < 5; i++)
                 g.DrawLine(new Pen(Brushes.RosyBrown, 5), new Point(80, 100 * i + i * 5), new Point(1458, 100 * i + i * 5));
@@ -54,6 +47,7 @@ namespace Snakes
             if (Application.OpenForms.OfType<Shop>().Count() == 1)
                 Application.OpenForms.OfType<Shop>().First().Close();
             shop.Show();
+            labelFocusRemover.Focus();
         }
 
         private async void reload_Click(object sender, EventArgs e)
@@ -71,20 +65,25 @@ namespace Snakes
             bullet3.Show();
             bullet4.Show();
             bullet5.Show();
+            labelFocusRemover.Focus();
         }
 
-        private void AddMoney_Click(object sender, EventArgs e)
+
         private void moveTimerEvent(object sender, EventArgs e)
         {
             if ((moveDown == true) && (character.Bottom <= 450))
                 character.Top += 105;
             if ((moveUp == true) && (character.Top >= 100))
                 character.Top -= 105;
-
-            balance += 1000;
-            money.Text = balance.ToString();
         }
 
+            private void AddMoney_Click(object sender, EventArgs e)
+        {
+            balance += 1000;
+            money.Text = balance.ToString();
+            labelFocusRemover.Focus();
+
+        }
 
         //событие для закрытия формы
         private void Solo_FormClosing(object sender, FormClosingEventArgs e)
