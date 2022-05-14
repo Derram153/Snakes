@@ -39,15 +39,10 @@ namespace Snakes
         
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            //Bitmap bitmap = new Bitmap(pictureBox1.Image);
             g = pictureBox1.CreateGraphics();
-            //Image image = Properties.Resources.Character;
-            //Point point = new Point(x,y);
-            //g.DrawImage(Properties.Resources.Character, point);
             g.DrawLine(new Pen(Brushes.RosyBrown, 10), new Point(80, 0), new Point(80, 660));
             for (int i = 1; i < 5; i++)
                 g.DrawLine(new Pen(Brushes.RosyBrown, 5), new Point(80, 100 * i + i * 5), new Point(1458, 100 * i + i * 5));
-            //pictureBox1.Image = bitmap;
         }
 
         private void moveTimerEvent(object sender, EventArgs e)
