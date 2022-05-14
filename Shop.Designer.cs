@@ -28,31 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shop));
-            this.automat = new System.Windows.Forms.Button();
-            this.rifle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.rifle = new System.Windows.Forms.Button();
+            this.automat = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // automat
-            // 
-            this.automat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("automat.BackgroundImage")));
-            this.automat.Location = new System.Drawing.Point(12, 23);
-            this.automat.Name = "automat";
-            this.automat.Size = new System.Drawing.Size(141, 48);
-            this.automat.TabIndex = 0;
-            this.automat.UseVisualStyleBackColor = true;
-            // 
-            // rifle
-            // 
-            this.rifle.BackColor = System.Drawing.SystemColors.Control;
-            this.rifle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rifle.BackgroundImage")));
-            this.rifle.Location = new System.Drawing.Point(12, 105);
-            this.rifle.Name = "rifle";
-            this.rifle.Size = new System.Drawing.Size(141, 48);
-            this.rifle.TabIndex = 1;
-            this.rifle.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -72,6 +52,25 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "3600";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // rifle
+            // 
+            this.rifle.BackColor = System.Drawing.SystemColors.Control;
+            this.rifle.BackgroundImage = global::Snakes.Properties.Resources.снайперка;
+            this.rifle.Location = new System.Drawing.Point(12, 105);
+            this.rifle.Name = "rifle";
+            this.rifle.Size = new System.Drawing.Size(141, 48);
+            this.rifle.TabIndex = 1;
+            this.rifle.UseVisualStyleBackColor = false;
+            // 
+            // automat
+            // 
+            this.automat.BackgroundImage = global::Snakes.Properties.Resources.автомат2;
+            this.automat.Location = new System.Drawing.Point(12, 23);
+            this.automat.Name = "automat";
+            this.automat.Size = new System.Drawing.Size(141, 48);
+            this.automat.TabIndex = 0;
+            this.automat.UseVisualStyleBackColor = true;
             // 
             // Shop
             // 
