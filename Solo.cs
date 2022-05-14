@@ -20,7 +20,7 @@ namespace Snakes
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void shopButton_Click(object sender, EventArgs e)
         {
             
             Form shop = new Shop();
@@ -46,7 +46,7 @@ namespace Snakes
             bullet5.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AddMoney_Click(object sender, EventArgs e)
         {
             balance += 1000;
             money.Text = balance.ToString();
