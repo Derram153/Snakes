@@ -63,6 +63,16 @@ namespace Snakes.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Character {
+            get {
+                object obj = ResourceManager.GetObject("Character", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cherep_Skull {
             get {
                 object obj = ResourceManager.GetObject("Cherep_Skull", resourceCulture);
@@ -73,9 +83,9 @@ namespace Snakes.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Didzhey_eban {
+        internal static System.Drawing.Bitmap map {
             get {
-                object obj = ResourceManager.GetObject("Didzhey_eban", resourceCulture);
+                object obj = ResourceManager.GetObject("map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

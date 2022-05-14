@@ -35,10 +35,10 @@
             // 
             // SoloBut
             // 
-            this.SoloBut.Location = new System.Drawing.Point(75, 81);
-            this.SoloBut.Margin = new System.Windows.Forms.Padding(2);
+            this.SoloBut.Location = new System.Drawing.Point(100, 100);
+            this.SoloBut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SoloBut.Name = "SoloBut";
-            this.SoloBut.Size = new System.Drawing.Size(150, 41);
+            this.SoloBut.Size = new System.Drawing.Size(200, 50);
             this.SoloBut.TabIndex = 0;
             this.SoloBut.Text = "Играть";
             this.SoloBut.UseVisualStyleBackColor = true;
@@ -46,10 +46,10 @@
             // 
             // ExitBut
             // 
-            this.ExitBut.Location = new System.Drawing.Point(75, 126);
-            this.ExitBut.Margin = new System.Windows.Forms.Padding(2);
+            this.ExitBut.Location = new System.Drawing.Point(100, 155);
+            this.ExitBut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitBut.Name = "ExitBut";
-            this.ExitBut.Size = new System.Drawing.Size(150, 41);
+            this.ExitBut.Size = new System.Drawing.Size(200, 50);
             this.ExitBut.TabIndex = 0;
             this.ExitBut.Text = "Выход";
             this.ExitBut.UseVisualStyleBackColor = true;
@@ -57,14 +57,14 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(286, 287);
+            this.ClientSize = new System.Drawing.Size(381, 353);
             this.Controls.Add(this.ExitBut);
             this.Controls.Add(this.SoloBut);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainMenu";
             this.Text = "Snakiez";
             this.ResumeLayout(false);
