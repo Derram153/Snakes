@@ -22,7 +22,7 @@ namespace Snakes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            //проверка открыта ли форма
             Form shop = new Shop();
             if (Application.OpenForms.OfType<Shop>().Count() == 1)
                 Application.OpenForms.OfType<Shop>().First().Close();
