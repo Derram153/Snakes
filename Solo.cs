@@ -12,17 +12,26 @@ namespace Snakes
 {
     public partial class Solo : Form
     {
+        //BulletCount.Text = countbullet.ToString();
         Graphics g;
         bool moveUp, moveDown, shootRigth;
+        public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
-
+        public static int countbullet;
         //передача данных
         public static int balance = 0; 
         public Solo()
         {
+            Program.solo = this;
             character.Location = new Point(x, y);
+            //
             InitializeComponent();
+            //
+            countbullet = 5;
+           // BulletCount.Text = countbullet.ToString();
+            gropBoxAK47.Hide();
+            groupBoxSniper.Hide();
             character.Parent = Map;
             Image image = Properties.Resources.Character;
             character.Image = image;
@@ -43,34 +52,44 @@ namespace Snakes
         private void shopButton_Click(object sender, EventArgs e)
         {
             //проверка открыта ли форма
-            Form shop = new Shop();
+            Shop shop = new Shop();
             if (Application.OpenForms.OfType<Shop>().Count() == 1)
                 Application.OpenForms.OfType<Shop>().First().Close();
+           labelFocusRemover.Focus(); 
             shop.Show();
-            labelFocusRemover.Focus();
         }
 
         private async void reload_Click(object sender, EventArgs e)
         {
-            bullet1.Hide();
-            bullet2.Hide();
-            bullet3.Hide();
-            bullet4.Hide();
-            bullet5.Hide();
-            reload.Hide();
+            countbullet = 0;
+            //BulletCount.Text = countbullet.ToString();
+            groupBoxBullet.Hide();
+            reload.Enabled = false;
             await Task.Delay(5000);
-            reload.Show();
-            bullet1.Show();
-            bullet2.Show();
-            bullet3.Show();
-            bullet4.Show();
-            bullet5.Show();
+            reload.Enabled = true;
+            groupBoxBullet.Show();
             labelFocusRemover.Focus();
+            //BulletCount.Text = countbullet.ToString();
+            switch (idGuns)
+            {
+                case 1:
+                    countbullet = 5;
+                    break;
+                case 2:
+                    countbullet = 10;
+                    break;
+                case 3:
+                    countbullet = 3;
+                    break;
+            }
+            
         }
 
 
         private void moveTimerEvent(object sender, EventArgs e)
         {
+            BulletCount.Text = countbullet.ToString();
+            money.Text = balance.ToString();
             if ((moveDown == true) && (character.Bottom <= 450))
                 character.Top += 105;
             if ((moveUp == true) && (character.Top >= 100))
