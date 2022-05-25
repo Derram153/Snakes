@@ -35,26 +35,27 @@
             this.healthLabel = new System.Windows.Forms.Label();
             this.life = new System.Windows.Forms.Label();
             this.reload = new System.Windows.Forms.Button();
-            this.bullet1 = new System.Windows.Forms.PictureBox();
-            this.bullet2 = new System.Windows.Forms.PictureBox();
-            this.bullet3 = new System.Windows.Forms.PictureBox();
-            this.bullet4 = new System.Windows.Forms.PictureBox();
-            this.bullet5 = new System.Windows.Forms.PictureBox();
             this.AddMoney = new System.Windows.Forms.Button();
-            this.Map = new System.Windows.Forms.PictureBox();
             this.moveTimer = new System.Windows.Forms.Timer(this.components);
             this.moneyLabel = new System.Windows.Forms.Label();
             this.groupBoxBullet = new System.Windows.Forms.GroupBox();
+            this.bullet5 = new System.Windows.Forms.PictureBox();
+            this.bullet1 = new System.Windows.Forms.PictureBox();
+            this.bullet4 = new System.Windows.Forms.PictureBox();
+            this.bullet2 = new System.Windows.Forms.PictureBox();
+            this.bullet3 = new System.Windows.Forms.PictureBox();
             this.groupBoxShop = new System.Windows.Forms.GroupBox();
             this.labelFocusRemover = new System.Windows.Forms.Label();
+            this.Map = new System.Windows.Forms.PictureBox();
+            this.ResetButton = new System.Windows.Forms.Button();
+            this.groupBoxBullet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bullet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bullet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Map)).BeginInit();
-            this.groupBoxBullet.SuspendLayout();
             this.groupBoxShop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Map)).BeginInit();
             this.SuspendLayout();
             // 
             // money
@@ -113,66 +114,6 @@
             this.reload.UseVisualStyleBackColor = true;
             this.reload.Click += new System.EventHandler(this.reload_Click);
             // 
-            // bullet1
-            // 
-            this.bullet1.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet1.InitialImage = null;
-            this.bullet1.Location = new System.Drawing.Point(165, 22);
-            this.bullet1.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet1.Name = "bullet1";
-            this.bullet1.Size = new System.Drawing.Size(31, 98);
-            this.bullet1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet1.TabIndex = 6;
-            this.bullet1.TabStop = false;
-            // 
-            // bullet2
-            // 
-            this.bullet2.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet2.InitialImage = null;
-            this.bullet2.Location = new System.Drawing.Point(126, 22);
-            this.bullet2.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet2.Name = "bullet2";
-            this.bullet2.Size = new System.Drawing.Size(31, 98);
-            this.bullet2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet2.TabIndex = 7;
-            this.bullet2.TabStop = false;
-            // 
-            // bullet3
-            // 
-            this.bullet3.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet3.InitialImage = null;
-            this.bullet3.Location = new System.Drawing.Point(87, 22);
-            this.bullet3.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet3.Name = "bullet3";
-            this.bullet3.Size = new System.Drawing.Size(31, 98);
-            this.bullet3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet3.TabIndex = 8;
-            this.bullet3.TabStop = false;
-            // 
-            // bullet4
-            // 
-            this.bullet4.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet4.InitialImage = null;
-            this.bullet4.Location = new System.Drawing.Point(49, 22);
-            this.bullet4.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet4.Name = "bullet4";
-            this.bullet4.Size = new System.Drawing.Size(31, 98);
-            this.bullet4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet4.TabIndex = 9;
-            this.bullet4.TabStop = false;
-            // 
-            // bullet5
-            // 
-            this.bullet5.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet5.InitialImage = null;
-            this.bullet5.Location = new System.Drawing.Point(7, 22);
-            this.bullet5.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet5.Name = "bullet5";
-            this.bullet5.Size = new System.Drawing.Size(31, 98);
-            this.bullet5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet5.TabIndex = 10;
-            this.bullet5.TabStop = false;
-            // 
             // AddMoney
             // 
             this.AddMoney.CausesValidation = false;
@@ -185,18 +126,6 @@
             this.AddMoney.Text = "добавить 1000";
             this.AddMoney.UseVisualStyleBackColor = true;
             this.AddMoney.Click += new System.EventHandler(this.AddMoney_Click);
-            // 
-            // Map
-            // 
-            this.Map.BackColor = System.Drawing.SystemColors.Control;
-            this.Map.Image = ((System.Drawing.Image)(resources.GetObject("Map.Image")));
-            this.Map.Location = new System.Drawing.Point(12, 260);
-            this.Map.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Map.Name = "Map";
-            this.Map.Size = new System.Drawing.Size(1458, 640);
-            this.Map.TabIndex = 0;
-            this.Map.TabStop = false;
-            this.Map.Paint += new System.Windows.Forms.PaintEventHandler(this.Map_Paint);
             // 
             // moveTimer
             // 
@@ -227,8 +156,69 @@
             this.groupBoxBullet.TabIndex = 12;
             this.groupBoxBullet.TabStop = false;
             // 
+            // bullet5
+            // 
+            this.bullet5.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet5.InitialImage = null;
+            this.bullet5.Location = new System.Drawing.Point(7, 22);
+            this.bullet5.Margin = new System.Windows.Forms.Padding(4);
+            this.bullet5.Name = "bullet5";
+            this.bullet5.Size = new System.Drawing.Size(31, 98);
+            this.bullet5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet5.TabIndex = 10;
+            this.bullet5.TabStop = false;
+            // 
+            // bullet1
+            // 
+            this.bullet1.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet1.InitialImage = null;
+            this.bullet1.Location = new System.Drawing.Point(165, 22);
+            this.bullet1.Margin = new System.Windows.Forms.Padding(4);
+            this.bullet1.Name = "bullet1";
+            this.bullet1.Size = new System.Drawing.Size(31, 98);
+            this.bullet1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet1.TabIndex = 6;
+            this.bullet1.TabStop = false;
+            // 
+            // bullet4
+            // 
+            this.bullet4.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet4.InitialImage = null;
+            this.bullet4.Location = new System.Drawing.Point(49, 22);
+            this.bullet4.Margin = new System.Windows.Forms.Padding(4);
+            this.bullet4.Name = "bullet4";
+            this.bullet4.Size = new System.Drawing.Size(31, 98);
+            this.bullet4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet4.TabIndex = 9;
+            this.bullet4.TabStop = false;
+            // 
+            // bullet2
+            // 
+            this.bullet2.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet2.InitialImage = null;
+            this.bullet2.Location = new System.Drawing.Point(126, 22);
+            this.bullet2.Margin = new System.Windows.Forms.Padding(4);
+            this.bullet2.Name = "bullet2";
+            this.bullet2.Size = new System.Drawing.Size(31, 98);
+            this.bullet2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet2.TabIndex = 7;
+            this.bullet2.TabStop = false;
+            // 
+            // bullet3
+            // 
+            this.bullet3.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet3.InitialImage = null;
+            this.bullet3.Location = new System.Drawing.Point(87, 22);
+            this.bullet3.Margin = new System.Windows.Forms.Padding(4);
+            this.bullet3.Name = "bullet3";
+            this.bullet3.Size = new System.Drawing.Size(31, 98);
+            this.bullet3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet3.TabIndex = 8;
+            this.bullet3.TabStop = false;
+            // 
             // groupBoxShop
             // 
+            this.groupBoxShop.Controls.Add(this.ResetButton);
             this.groupBoxShop.Controls.Add(this.shopButton);
             this.groupBoxShop.Controls.Add(this.AddMoney);
             this.groupBoxShop.Location = new System.Drawing.Point(12, 51);
@@ -246,6 +236,30 @@
             this.labelFocusRemover.TabIndex = 14;
             this.labelFocusRemover.Text = "label1";
             // 
+            // Map
+            // 
+            this.Map.BackColor = System.Drawing.SystemColors.Control;
+            this.Map.Image = ((System.Drawing.Image)(resources.GetObject("Map.Image")));
+            this.Map.Location = new System.Drawing.Point(12, 260);
+            this.Map.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Map.Name = "Map";
+            this.Map.Size = new System.Drawing.Size(1458, 640);
+            this.Map.TabIndex = 0;
+            this.Map.TabStop = false;
+            this.Map.Paint += new System.Windows.Forms.PaintEventHandler(this.Map_Paint);
+            // 
+            // ResetButton
+            // 
+            this.ResetButton.CausesValidation = false;
+            this.ResetButton.Location = new System.Drawing.Point(129, 103);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(126, 50);
+            this.ResetButton.TabIndex = 15;
+            this.ResetButton.TabStop = false;
+            this.ResetButton.Text = "restart";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // Solo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,19 +276,22 @@
             this.Controls.Add(this.Map);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1499, 955);
+            this.MinimumSize = new System.Drawing.Size(1499, 955);
             this.Name = "Solo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Solo_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            this.groupBoxBullet.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bullet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bullet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Map)).EndInit();
-            this.groupBoxBullet.ResumeLayout(false);
             this.groupBoxShop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Map)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,12 +309,12 @@
         private System.Windows.Forms.PictureBox bullet5;
         private System.Windows.Forms.Button AddMoney;
         public System.Windows.Forms.Label money;
-
-        private System.Windows.Forms.PictureBox Map;
         private System.Windows.Forms.Timer moveTimer;
         private System.Windows.Forms.Label moneyLabel;
         private System.Windows.Forms.GroupBox groupBoxBullet;
         private System.Windows.Forms.GroupBox groupBoxShop;
         private System.Windows.Forms.Label labelFocusRemover;
+        private System.Windows.Forms.PictureBox Map;
+        private System.Windows.Forms.Button ResetButton;
     }
 }

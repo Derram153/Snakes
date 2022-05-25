@@ -53,7 +53,6 @@
             this.price2.Size = new System.Drawing.Size(31, 13);
             this.price2.TabIndex = 3;
             this.price2.Text = "3600";
-            this.price2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // rifle
             // 

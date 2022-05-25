@@ -16,22 +16,53 @@ namespace Snakes
         bool moveUp, moveDown, shootRigth;
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
-
+        Enemy[] enemy = new Enemy[5];
         //передача данных
-        public static int balance = 0; 
+        public static int balance = 0;
+        public static int health = 100;
+        
         public Solo()
         {
-            character.Location = new Point(x, y);
+            //Random random = new Random();
+            //LehmerRng rng = new LehmerRng(random.Next(1, 50));
+            //int[] vs = new int[100];
+            //for (int i = 0; i < 100; i++)
+            //vs[i]=Convert.ToInt32((rng.Next()*50%4));
             InitializeComponent();
+            CharacterCreate();
+            Enemies();
+            
+        }
+
+        private async void Enemies()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                enemy[i] = new Enemy();
+                enemy[i].picture.Parent = Map;
+                enemy[i].DoStaff();
+                await Task.Delay(600);
+            }
+            //while (true)
+            //{
+            //    Enemy en = new Enemy();
+            //    en.picture.Parent = Map;
+            //    en.DoStaff();
+            //    await Task.Delay(7000);
+            //}
+        }
+
+        private void CharacterCreate()
+        {
+            character.Location = new Point(x, y);
             character.Parent = Map;
             Image image = Properties.Resources.Character;
             character.Image = image;
             character.SizeMode = PictureBoxSizeMode.AutoSize;
             character.BackColor = Color.Transparent;
             character.BringToFront();
-            
         }
-        
+
         private void Map_Paint(object sender, PaintEventArgs e)
         {
             g = Map.CreateGraphics();
@@ -46,8 +77,9 @@ namespace Snakes
             Form shop = new Shop();
             if (Application.OpenForms.OfType<Shop>().Count() == 1)
                 Application.OpenForms.OfType<Shop>().First().Close();
-            shop.Show();
             labelFocusRemover.Focus();
+            shop.Show();
+            
         }
 
         private async void reload_Click(object sender, EventArgs e)
@@ -57,14 +89,14 @@ namespace Snakes
             bullet3.Hide();
             bullet4.Hide();
             bullet5.Hide();
-            reload.Hide();
+            reload.Enabled = false;
             await Task.Delay(5000);
-            reload.Show();
             bullet1.Show();
             bullet2.Show();
             bullet3.Show();
             bullet4.Show();
             bullet5.Show();
+            reload.Enabled = true;
             labelFocusRemover.Focus();
         }
 
@@ -75,6 +107,7 @@ namespace Snakes
                 character.Top += 105;
             if ((moveUp == true) && (character.Top >= 100))
                 character.Top -= 105;
+            life.Text = health.ToString();
         }
 
             private void AddMoney_Click(object sender, EventArgs e)
@@ -83,6 +116,12 @@ namespace Snakes
             money.Text = balance.ToString();
             labelFocusRemover.Focus();
 
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            Enemies();
+            labelFocusRemover.Focus();
         }
 
         //событие для закрытия формы

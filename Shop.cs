@@ -19,11 +19,6 @@ namespace Snakes
             moneyshop.Text = Solo.balance.ToString();
         }
 
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void automat_Click(object sender, EventArgs e)
         {
             int price = Convert.ToInt32(price1.Text);
