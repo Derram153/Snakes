@@ -25,13 +25,9 @@ namespace Snakes
         private void SoloBut_Click(object sender, EventArgs e)
         {
             Form game = new Solo();
+            this.Hide();
             game.Show();
-            Hide();
         }
 
-        //событие для закрытия формы
-        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        }
     }
 }
