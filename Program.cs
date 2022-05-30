@@ -8,6 +8,7 @@ namespace Snakes
 {
     static class Program
     {
+        public static Solo solo;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

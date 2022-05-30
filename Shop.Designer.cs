@@ -30,10 +30,10 @@
         {
             this.price1 = new System.Windows.Forms.Label();
             this.price2 = new System.Windows.Forms.Label();
-            this.rifle = new System.Windows.Forms.Button();
-            this.automat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.moneyshop = new System.Windows.Forms.Label();
+            this.rifle = new System.Windows.Forms.Button();
+            this.automat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // price1
@@ -54,28 +54,6 @@
             this.price2.TabIndex = 3;
             this.price2.Text = "3600";
             // 
-            // rifle
-            // 
-            this.rifle.BackColor = System.Drawing.SystemColors.Control;
-            this.rifle.BackgroundImage = global::Snakes.Properties.Resources.снайперка;
-            this.rifle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rifle.Location = new System.Drawing.Point(12, 105);
-            this.rifle.Name = "rifle";
-            this.rifle.Size = new System.Drawing.Size(141, 48);
-            this.rifle.TabIndex = 1;
-            this.rifle.UseVisualStyleBackColor = false;
-            // 
-            // automat
-            // 
-            this.automat.BackgroundImage = global::Snakes.Properties.Resources.автомат2;
-            this.automat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.automat.Location = new System.Drawing.Point(12, 23);
-            this.automat.Name = "automat";
-            this.automat.Size = new System.Drawing.Size(141, 48);
-            this.automat.TabIndex = 0;
-            this.automat.UseVisualStyleBackColor = true;
-            this.automat.Click += new System.EventHandler(this.automat_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -93,6 +71,29 @@
             this.moneyshop.Size = new System.Drawing.Size(13, 13);
             this.moneyshop.TabIndex = 5;
             this.moneyshop.Text = "0";
+            // 
+            // rifle
+            // 
+            this.rifle.BackColor = System.Drawing.SystemColors.Control;
+            this.rifle.BackgroundImage = global::Snakes.Properties.Resources.снайперка;
+            this.rifle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rifle.Location = new System.Drawing.Point(12, 105);
+            this.rifle.Name = "rifle";
+            this.rifle.Size = new System.Drawing.Size(141, 48);
+            this.rifle.TabIndex = 1;
+            this.rifle.UseVisualStyleBackColor = false;
+            this.rifle.Click += new System.EventHandler(this.rifle_Click);
+            // 
+            // automat
+            // 
+            this.automat.BackgroundImage = global::Snakes.Properties.Resources.автомат2;
+            this.automat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.automat.Location = new System.Drawing.Point(12, 23);
+            this.automat.Name = "automat";
+            this.automat.Size = new System.Drawing.Size(141, 48);
+            this.automat.TabIndex = 0;
+            this.automat.UseVisualStyleBackColor = true;
+            this.automat.Click += new System.EventHandler(this.automat_Click);
             // 
             // Shop
             // 
