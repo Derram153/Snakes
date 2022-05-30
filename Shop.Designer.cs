@@ -82,7 +82,7 @@
             this.rifle.Size = new System.Drawing.Size(141, 48);
             this.rifle.TabIndex = 1;
             this.rifle.UseVisualStyleBackColor = false;
-            this.rifle.Click += new System.EventHandler(this.rifle_Click);
+            this.rifle.Click += new System.EventHandler(this.Rifle_Click);
             // 
             // automat
             // 
@@ -93,7 +93,7 @@
             this.automat.Size = new System.Drawing.Size(141, 48);
             this.automat.TabIndex = 0;
             this.automat.UseVisualStyleBackColor = true;
-            this.automat.Click += new System.EventHandler(this.automat_Click);
+            this.automat.Click += new System.EventHandler(this.Automat_Click);
             // 
             // Shop
             // 

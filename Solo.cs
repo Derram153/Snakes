@@ -20,6 +20,7 @@ namespace Snakes
         public PictureBox character = new PictureBox();
         Enemy[] enemy = new Enemy[5];
         public static int countbullet;
+        
         //передача данных
         public static int balance = 0;
         public static int health = 100;
@@ -31,7 +32,13 @@ namespace Snakes
             //int[] vs = new int[100];
             //for (int i = 0; i < 100; i++)
             //vs[i]=Convert.ToInt32((rng.Next()*50%4));
+            Program.solo = this;
             InitializeComponent();
+            //
+            countbullet = 5;
+            gropBoxAK47.Hide();
+            groupBoxSniper.Hide();
+            // BulletCount.Text = countbullet.ToString();
             CharacterCreate();
             Enemies();
             
@@ -57,14 +64,7 @@ namespace Snakes
 
         private void CharacterCreate()
         {
-            Program.solo = this;
             character.Location = new Point(x, y);
-            InitializeComponent();
-            //
-            countbullet = 5;
-           // BulletCount.Text = countbullet.ToString();
-            gropBoxAK47.Hide();
-            groupBoxSniper.Hide();
             character.Parent = Map;
             Image image = Properties.Resources.Character;
             character.Image = image;
@@ -81,7 +81,7 @@ namespace Snakes
                 g.DrawLine(new Pen(Brushes.RosyBrown, 5), new Point(80, 100 * i + i * 5), new Point(1458, 100 * i + i * 5));
         }
 
-        private void shopButton_Click(object sender, EventArgs e)
+        private void ShopButton_Click(object sender, EventArgs e)
         {
             //проверка открыта ли форма
             Shop shop = new Shop();
@@ -92,7 +92,7 @@ namespace Snakes
             
         }
 
-        private async void reload_Click(object sender, EventArgs e)
+        private async void Reload_Click(object sender, EventArgs e)
         {
             countbullet = 0;
             //BulletCount.Text = countbullet.ToString();
@@ -119,7 +119,7 @@ namespace Snakes
         }
 
 
-        private void moveTimerEvent(object sender, EventArgs e)
+        private void MoveTimerEvent(object sender, EventArgs e)
         {
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
