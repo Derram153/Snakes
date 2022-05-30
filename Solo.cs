@@ -12,26 +12,67 @@ namespace Snakes
 {
     public partial class Solo : Form
     {
+        //BulletCount.Text = countbullet.ToString();
         Graphics g;
         bool moveUp, moveDown, shootRigth;
+        public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
-
+        Enemy[] enemy = new Enemy[5];
+        public static int countbullet;
+        
         //передача данных
-        public static int balance = 0; 
+        public static int balance = 0;
+        public static int health = 100;
+        
         public Solo()
         {
-            character.Location = new Point(x, y);
+            //Random random = new Random();
+            //LehmerRng rng = new LehmerRng(random.Next(1, 50));
+            //int[] vs = new int[100];
+            //for (int i = 0; i < 100; i++)
+            //vs[i]=Convert.ToInt32((rng.Next()*50%4));
+            Program.solo = this;
             InitializeComponent();
+            //
+            countbullet = 5;
+            gropBoxAK47.Hide();
+            groupBoxSniper.Hide();
+            // BulletCount.Text = countbullet.ToString();
+            CharacterCreate();
+            Enemies();
+            
+        }
+
+        private async void Enemies()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                enemy[i] = new Enemy();
+                enemy[i].picture.Parent = Map;
+                enemy[i].DoStaff();
+                await Task.Delay(600);
+            }
+            //while (true)
+            //{
+            //    Enemy en = new Enemy();
+            //    en.picture.Parent = Map;
+            //    en.DoStaff();
+            //    await Task.Delay(7000);
+            //}
+        }
+
+        private void CharacterCreate()
+        {
+            character.Location = new Point(x, y);
             character.Parent = Map;
             Image image = Properties.Resources.Character;
             character.Image = image;
             character.SizeMode = PictureBoxSizeMode.AutoSize;
             character.BackColor = Color.Transparent;
             character.BringToFront();
-            
         }
-        
+
         private void Map_Paint(object sender, PaintEventArgs e)
         {
             g = Map.CreateGraphics();
@@ -40,41 +81,53 @@ namespace Snakes
                 g.DrawLine(new Pen(Brushes.RosyBrown, 5), new Point(80, 100 * i + i * 5), new Point(1458, 100 * i + i * 5));
         }
 
-        private void shopButton_Click(object sender, EventArgs e)
+        private void ShopButton_Click(object sender, EventArgs e)
         {
-            
-            Form shop = new Shop();
+            //проверка открыта ли форма
+            Shop shop = new Shop();
             if (Application.OpenForms.OfType<Shop>().Count() == 1)
                 Application.OpenForms.OfType<Shop>().First().Close();
+            labelFocusRemover.Focus();
             shop.Show();
-            labelFocusRemover.Focus();
+            
         }
 
-        private async void reload_Click(object sender, EventArgs e)
+        private async void Reload_Click(object sender, EventArgs e)
         {
-            bullet1.Hide();
-            bullet2.Hide();
-            bullet3.Hide();
-            bullet4.Hide();
-            bullet5.Hide();
-            reload.Hide();
+            countbullet = 0;
+            //BulletCount.Text = countbullet.ToString();
+            groupBoxBullet.Hide();
+            reload.Enabled = false;
             await Task.Delay(5000);
-            reload.Show();
-            bullet1.Show();
-            bullet2.Show();
-            bullet3.Show();
-            bullet4.Show();
-            bullet5.Show();
+            reload.Enabled = true;
+            groupBoxBullet.Show();
             labelFocusRemover.Focus();
+            //BulletCount.Text = countbullet.ToString();
+            switch (idGuns)
+            {
+                case 1:
+                    countbullet = 5;
+                    break;
+                case 2:
+                    countbullet = 10;
+                    break;
+                case 3:
+                    countbullet = 3;
+                    break;
+            }
+            
         }
 
 
-        private void moveTimerEvent(object sender, EventArgs e)
+        private void MoveTimerEvent(object sender, EventArgs e)
         {
+            BulletCount.Text = countbullet.ToString();
+            money.Text = balance.ToString();
             if ((moveDown == true) && (character.Bottom <= 450))
                 character.Top += 105;
             if ((moveUp == true) && (character.Top >= 100))
                 character.Top -= 105;
+            life.Text = health.ToString();
         }
 
             private void AddMoney_Click(object sender, EventArgs e)
@@ -83,6 +136,12 @@ namespace Snakes
             money.Text = balance.ToString();
             labelFocusRemover.Focus();
 
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            Enemies();
+            labelFocusRemover.Focus();
         }
 
         //событие для закрытия формы
