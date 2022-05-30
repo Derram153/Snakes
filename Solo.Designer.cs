@@ -118,7 +118,7 @@
             this.reload.Location = new System.Drawing.Point(7, 13);
             this.reload.Margin = new System.Windows.Forms.Padding(4);
             this.reload.Name = "reload";
-            this.reload.Size = new System.Drawing.Size(184, 102);
+            this.reload.Size = new System.Drawing.Size(185, 96);
             this.reload.TabIndex = 5;
             this.reload.TabStop = false;
             this.reload.Text = "Перезарядка";
@@ -293,10 +293,10 @@
             // 
             this.Map.BackColor = System.Drawing.SystemColors.Control;
             this.Map.Image = ((System.Drawing.Image)(resources.GetObject("Map.Image")));
-            this.Map.Location = new System.Drawing.Point(16, 320);
+            this.Map.Location = new System.Drawing.Point(16, 259);
             this.Map.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Map.Name = "Map";
-            this.Map.Size = new System.Drawing.Size(1944, 788);
+            this.Map.Size = new System.Drawing.Size(1458, 640);
             this.Map.TabIndex = 0;
             this.Map.TabStop = false;
             this.Map.Paint += new System.Windows.Forms.PaintEventHandler(this.Map_Paint);
@@ -327,9 +327,9 @@
             // groupBoxReload
             // 
             this.groupBoxReload.Controls.Add(this.reload);
-            this.groupBoxReload.Location = new System.Drawing.Point(566, 140);
+            this.groupBoxReload.Location = new System.Drawing.Point(566, 139);
             this.groupBoxReload.Name = "groupBoxReload";
-            this.groupBoxReload.Size = new System.Drawing.Size(199, 124);
+            this.groupBoxReload.Size = new System.Drawing.Size(199, 116);
             this.groupBoxReload.TabIndex = 18;
             this.groupBoxReload.TabStop = false;
             // 
@@ -338,7 +338,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1975, 1118);
+            this.ClientSize = new System.Drawing.Size(1481, 908);
             this.Controls.Add(this.groupBoxReload);
             this.Controls.Add(this.BulletCount);
             this.Controls.Add(this.groupBoxSniper);
@@ -354,8 +354,8 @@
             this.Controls.Add(this.Map);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.MaximumSize = new System.Drawing.Size(1993, 1165);
-            this.MinimumSize = new System.Drawing.Size(1918, 1028);
+            this.MaximumSize = new System.Drawing.Size(1499, 955);
+            this.MinimumSize = new System.Drawing.Size(1499, 955);
             this.Name = "Solo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
