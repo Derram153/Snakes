@@ -20,12 +20,7 @@ namespace Snakes
             moneyshop.Text = Solo.balance.ToString();
         }
 
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void automat_Click(object sender, EventArgs e)
+        private void Automat_Click(object sender, EventArgs e)
         {
             int price = Convert.ToInt32(price1.Text);
             int money = Convert.ToInt32(moneyshop.Text);
@@ -45,7 +40,7 @@ namespace Snakes
             //или чтобы каждый раз при получении очков оно отображалось
         }
 
-        private void rifle_Click(object sender, EventArgs e)
+        private void Rifle_Click(object sender, EventArgs e)
         {
             int price = Convert.ToInt32(price2.Text);
             int money = Convert.ToInt32(moneyshop.Text);

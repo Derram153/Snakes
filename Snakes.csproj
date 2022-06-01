@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enemy.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,19 +105,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Character.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Didzhey_eban.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Cherep_Skull.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Didzhey_eban1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Безымянный.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Character.png" />
@@ -138,6 +127,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\пистолет.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

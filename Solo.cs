@@ -18,29 +18,61 @@ namespace Snakes
         public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
+        Enemy[] enemy = new Enemy[5];
         public static int countbullet;
+        
         //передача данных
-        public static int balance = 0; 
+        public static int balance = 0;
+        public static int health = 100;
+        
         public Solo()
         {
+            //Random random = new Random();
+            //LehmerRng rng = new LehmerRng(random.Next(1, 50));
+            //int[] vs = new int[100];
+            //for (int i = 0; i < 100; i++)
+            //vs[i]=Convert.ToInt32((rng.Next()*50%4));
             Program.solo = this;
-            character.Location = new Point(x, y);
-            //
             InitializeComponent();
             //
             countbullet = 5;
-           // BulletCount.Text = countbullet.ToString();
             gropBoxAK47.Hide();
             groupBoxSniper.Hide();
+            // BulletCount.Text = countbullet.ToString();
+            CharacterCreate();
+            Enemies();
+            
+        }
+
+        private async void Enemies()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                enemy[i] = new Enemy();
+                enemy[i].picture.Parent = Map;
+                enemy[i].DoStaff();
+                await Task.Delay(600);
+            }
+            //while (true)
+            //{
+            //    Enemy en = new Enemy();
+            //    en.picture.Parent = Map;
+            //    en.DoStaff();
+            //    await Task.Delay(7000);
+            //}
+        }
+
+        private void CharacterCreate()
+        {
+            character.Location = new Point(x, y);
             character.Parent = Map;
             Image image = Properties.Resources.Character;
             character.Image = image;
             character.SizeMode = PictureBoxSizeMode.AutoSize;
             character.BackColor = Color.Transparent;
             character.BringToFront();
-            
         }
-        
+
         private void Map_Paint(object sender, PaintEventArgs e)
         {
             g = Map.CreateGraphics();
@@ -49,17 +81,18 @@ namespace Snakes
                 g.DrawLine(new Pen(Brushes.RosyBrown, 5), new Point(80, 100 * i + i * 5), new Point(1458, 100 * i + i * 5));
         }
 
-        private void shopButton_Click(object sender, EventArgs e)
+        private void ShopButton_Click(object sender, EventArgs e)
         {
             //проверка открыта ли форма
             Shop shop = new Shop();
             if (Application.OpenForms.OfType<Shop>().Count() == 1)
                 Application.OpenForms.OfType<Shop>().First().Close();
-           labelFocusRemover.Focus(); 
+            labelFocusRemover.Focus();
             shop.Show();
+            
         }
 
-        private async void reload_Click(object sender, EventArgs e)
+        private async void Reload_Click(object sender, EventArgs e)
         {
             countbullet = 0;
             //BulletCount.Text = countbullet.ToString();
@@ -86,7 +119,7 @@ namespace Snakes
         }
 
 
-        private void moveTimerEvent(object sender, EventArgs e)
+        private void MoveTimerEvent(object sender, EventArgs e)
         {
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
@@ -94,6 +127,7 @@ namespace Snakes
                 character.Top += 105;
             if ((moveUp == true) && (character.Top >= 100))
                 character.Top -= 105;
+            life.Text = health.ToString();
         }
 
             private void AddMoney_Click(object sender, EventArgs e)
@@ -102,6 +136,12 @@ namespace Snakes
             money.Text = balance.ToString();
             labelFocusRemover.Focus();
 
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            Enemies();
+            labelFocusRemover.Focus();
         }
 
         //событие для закрытия формы
