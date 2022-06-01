@@ -60,14 +60,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(256, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Ваши деньги:";
+            this.label1.Text = "Баланс:";
             // 
             // moneyshop
             // 
             this.moneyshop.AutoSize = true;
-            this.moneyshop.Location = new System.Drawing.Point(337, 23);
+            this.moneyshop.Location = new System.Drawing.Point(306, 23);
             this.moneyshop.Name = "moneyshop";
             this.moneyshop.Size = new System.Drawing.Size(13, 13);
             this.moneyshop.TabIndex = 5;
