@@ -119,6 +119,7 @@ namespace Snakes
 
         private void MoveTimerEvent(object sender, EventArgs e)
         {
+            scorelable.Text = score.ToString();
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
             if (Guns.id == 4) reload.Enabled = false;

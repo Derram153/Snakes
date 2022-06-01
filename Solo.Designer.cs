@@ -48,6 +48,9 @@
             this.BulletCount = new System.Windows.Forms.Label();
             this.groupBoxReload = new System.Windows.Forms.GroupBox();
             this.groupBoxMachinegun = new System.Windows.Forms.GroupBox();
+            this.groupBoxScore = new System.Windows.Forms.GroupBox();
+            this.scorelable = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bullet3 = new System.Windows.Forms.PictureBox();
@@ -63,6 +66,7 @@
             this.groupBoxBullet.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
             this.groupBoxMachinegun.SuspendLayout();
+            this.groupBoxScore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).BeginInit();
@@ -162,9 +166,9 @@
             // 
             this.groupBoxPistol.Controls.Add(this.pictureBox11);
             this.groupBoxPistol.Location = new System.Drawing.Point(222, 113);
-            this.groupBoxPistol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxPistol.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPistol.Name = "groupBoxPistol";
-            this.groupBoxPistol.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxPistol.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxPistol.Size = new System.Drawing.Size(123, 94);
             this.groupBoxPistol.TabIndex = 12;
             this.groupBoxPistol.TabStop = false;
@@ -175,9 +179,9 @@
             this.groupBoxShop.Controls.Add(this.AddMoney);
             this.groupBoxShop.Controls.Add(this.ResetButton);
             this.groupBoxShop.Location = new System.Drawing.Point(12, 46);
-            this.groupBoxShop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxShop.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxShop.Name = "groupBoxShop";
-            this.groupBoxShop.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxShop.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxShop.Size = new System.Drawing.Size(191, 132);
             this.groupBoxShop.TabIndex = 13;
             this.groupBoxShop.TabStop = false;
@@ -186,7 +190,7 @@
             // 
             this.ResetButton.CausesValidation = false;
             this.ResetButton.Location = new System.Drawing.Point(136, 82);
-            this.ResetButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(51, 42);
             this.ResetButton.TabIndex = 15;
@@ -198,7 +202,7 @@
             // labelFocusRemover
             // 
             this.labelFocusRemover.AutoSize = true;
-            this.labelFocusRemover.Location = new System.Drawing.Point(489, 15);
+            this.labelFocusRemover.Location = new System.Drawing.Point(682, 11);
             this.labelFocusRemover.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFocusRemover.Name = "labelFocusRemover";
             this.labelFocusRemover.Size = new System.Drawing.Size(35, 13);
@@ -209,9 +213,9 @@
             // 
             this.gropBoxAK47.Controls.Add(this.pictureBox14);
             this.gropBoxAK47.Location = new System.Drawing.Point(222, 113);
-            this.gropBoxAK47.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gropBoxAK47.Margin = new System.Windows.Forms.Padding(2);
             this.gropBoxAK47.Name = "gropBoxAK47";
-            this.gropBoxAK47.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gropBoxAK47.Padding = new System.Windows.Forms.Padding(2);
             this.gropBoxAK47.Size = new System.Drawing.Size(157, 94);
             this.gropBoxAK47.TabIndex = 15;
             this.gropBoxAK47.TabStop = false;
@@ -220,9 +224,9 @@
             // 
             this.groupBoxSniper.Controls.Add(this.pictureBox1);
             this.groupBoxSniper.Location = new System.Drawing.Point(222, 113);
-            this.groupBoxSniper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSniper.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxSniper.Name = "groupBoxSniper";
-            this.groupBoxSniper.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSniper.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxSniper.Size = new System.Drawing.Size(157, 94);
             this.groupBoxSniper.TabIndex = 17;
             this.groupBoxSniper.TabStop = false;
@@ -253,9 +257,9 @@
             // 
             this.groupBoxReload.Controls.Add(this.reload);
             this.groupBoxReload.Location = new System.Drawing.Point(424, 113);
-            this.groupBoxReload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxReload.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxReload.Name = "groupBoxReload";
-            this.groupBoxReload.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxReload.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxReload.Size = new System.Drawing.Size(149, 94);
             this.groupBoxReload.TabIndex = 18;
             this.groupBoxReload.TabStop = false;
@@ -270,6 +274,44 @@
             this.groupBoxMachinegun.Size = new System.Drawing.Size(157, 94);
             this.groupBoxMachinegun.TabIndex = 19;
             this.groupBoxMachinegun.TabStop = false;
+            // 
+            // groupBoxScore
+            // 
+            this.groupBoxScore.BackgroundImage = global::Snakes.Properties.Resources.scorehead;
+            this.groupBoxScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.groupBoxScore.Controls.Add(this.scorelable);
+            this.groupBoxScore.Controls.Add(this.label1);
+            this.groupBoxScore.Location = new System.Drawing.Point(424, 25);
+            this.groupBoxScore.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxScore.Name = "groupBoxScore";
+            this.groupBoxScore.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxScore.Size = new System.Drawing.Size(149, 94);
+            this.groupBoxScore.TabIndex = 20;
+            this.groupBoxScore.TabStop = false;
+            // 
+            // scorelable
+            // 
+            this.scorelable.AutoSize = true;
+            this.scorelable.BackColor = System.Drawing.Color.Transparent;
+            this.scorelable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.scorelable.Location = new System.Drawing.Point(59, 68);
+            this.scorelable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.scorelable.Name = "scorelable";
+            this.scorelable.Size = new System.Drawing.Size(18, 20);
+            this.scorelable.TabIndex = 21;
+            this.scorelable.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(4, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Счет:";
             // 
             // pictureBox2
             // 
@@ -362,6 +404,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1022, 603);
+            this.Controls.Add(this.groupBoxScore);
             this.Controls.Add(this.groupBoxMachinegun);
             this.Controls.Add(this.groupBoxReload);
             this.Controls.Add(this.BulletCount);
@@ -393,6 +436,8 @@
             this.groupBoxBullet.ResumeLayout(false);
             this.groupBoxReload.ResumeLayout(false);
             this.groupBoxMachinegun.ResumeLayout(false);
+            this.groupBoxScore.ResumeLayout(false);
+            this.groupBoxScore.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).EndInit();
@@ -433,5 +478,8 @@
         public System.Windows.Forms.GroupBox groupBoxMachinegun;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Button reload;
+        private System.Windows.Forms.GroupBox groupBoxScore;
+        private System.Windows.Forms.Label scorelable;
+        private System.Windows.Forms.Label label1;
     }
 }

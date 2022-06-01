@@ -153,6 +153,16 @@ namespace Snakes.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap scorehead {
+            get {
+                object obj = ResourceManager.GetObject("scorehead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap автомат2 {
             get {
                 object obj = ResourceManager.GetObject("автомат2", resourceCulture);
