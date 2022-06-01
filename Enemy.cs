@@ -69,7 +69,9 @@ namespace Snakes
         }
         public async void StartMoving()
         {
-            if (health >= 0)
+            if (health <= 0)
+                Die();
+            else
             {
                 while (picture.Left >= 100)
                 {
@@ -78,17 +80,16 @@ namespace Snakes
                 }
                 Smash(damage);
             }
-            else
-                Die();
         }
         public void Smash(int damage)
         {
             Solo.health -= damage;
             DoStaff();
         }
-        void Die()
+        public void Die()
         {
-            DoStaff();
+            //DoStaff();
+            Create();
         }
     }
 }

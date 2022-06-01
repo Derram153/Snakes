@@ -44,8 +44,28 @@ namespace Snakes
             
         }
 
+        private async void Restart()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                //enemy[i] = new Enemy();
+                enemy[i].Die();
+                //enemy[i].health = 0;
+                //enemy[i].StartMoving();
+                await Task.Delay(10);
+                // enemy[i].picture.Parent = Map;
+            }
+        }
+
         private async void Enemies()
         {
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    enemy[i] = new Enemy();
+            //   // enemy[i].picture.Parent = Map;
+            //    enemy[i].Die();
+            //}
+
             for (int i = 0; i < 5; i++)
             {
                 enemy[i] = new Enemy();
@@ -140,7 +160,8 @@ namespace Snakes
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            Enemies();
+            Restart();
+            //Enemies();
             labelFocusRemover.Focus();
         }
 
