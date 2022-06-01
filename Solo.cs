@@ -12,10 +12,9 @@ namespace Snakes
 {
     public partial class Solo : Form
     {
-        //BulletCount.Text = countbullet.ToString();
         Graphics g;
+        public static int score = 0;//количество килов зомби
         bool moveUp, moveDown, shootRigth;
-        public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
         Enemy[] enemy = new Enemy[5];
@@ -34,8 +33,8 @@ namespace Snakes
             //vs[i]=Convert.ToInt32((rng.Next()*50%4));
             Program.solo = this;
             InitializeComponent();
-            //
-            countbullet = 5;
+            //1 - пистолет, 2 - автомат, 3 - снайперка
+            Guns.Bullets();
             gropBoxAK47.Hide();
             groupBoxSniper.Hide();
             // BulletCount.Text = countbullet.ToString();
@@ -44,28 +43,17 @@ namespace Snakes
             
         }
 
-        private async void Restart()
+        private async void RespawnMonsters()
         {
             for (int i = 0; i < 5; i++)
             {
-                //enemy[i] = new Enemy();
                 enemy[i].Die();
-                //enemy[i].health = 0;
-                //enemy[i].StartMoving();
-                await Task.Delay(10);
-                // enemy[i].picture.Parent = Map;
+                await Task.Delay(100);
             }
         }
 
         private async void Enemies()
         {
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    enemy[i] = new Enemy();
-            //   // enemy[i].picture.Parent = Map;
-            //    enemy[i].Die();
-            //}
-
             for (int i = 0; i < 5; i++)
             {
                 enemy[i] = new Enemy();
@@ -115,27 +103,13 @@ namespace Snakes
         private async void Reload_Click(object sender, EventArgs e)
         {
             countbullet = 0;
-            //BulletCount.Text = countbullet.ToString();
             groupBoxBullet.Hide();
             reload.Enabled = false;
-            await Task.Delay(5000);
+            await Task.Delay(Guns.ReloadingTime());
             reload.Enabled = true;
             groupBoxBullet.Show();
             labelFocusRemover.Focus();
-            //BulletCount.Text = countbullet.ToString();
-            switch (idGuns)
-            {
-                case 1:
-                    countbullet = 5;
-                    break;
-                case 2:
-                    countbullet = 10;
-                    break;
-                case 3:
-                    countbullet = 3;
-                    break;
-            }
-            
+            Guns.Bullets();
         }
 
 
@@ -143,6 +117,7 @@ namespace Snakes
         {
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
+            if (Guns.id == 4) reload.Enabled = false;
             if ((moveDown == true) && (character.Bottom <= 450))
                 character.Top += 105;
             if ((moveUp == true) && (character.Top >= 100))
@@ -160,7 +135,7 @@ namespace Snakes
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            Restart();
+            RespawnMonsters();
             //Enemies();
             labelFocusRemover.Focus();
         }
