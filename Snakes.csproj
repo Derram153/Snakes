@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -136,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cherep_Skull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Character_with_gun.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

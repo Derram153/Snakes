@@ -17,10 +17,10 @@ namespace Snakes
 
         public void DoStaff()
         {
-            Create();
+            //Create();
             StartMoving();
         }
-        public void Create()
+        public void Create(Form form)
         {
             Random rnd = new Random();
             int version = rnd.Next(0, 100)%3;
@@ -35,6 +35,7 @@ namespace Snakes
                     picture.SizeMode = PictureBoxSizeMode.AutoSize;
                     picture.BackColor = Color.Transparent;
                     picture.BringToFront();
+                    form.Controls.Add(picture);
                     break;
                 case 1:
                     health = 2;
@@ -45,6 +46,7 @@ namespace Snakes
                     picture.SizeMode = PictureBoxSizeMode.AutoSize;
                     picture.BackColor = Color.Transparent;
                     picture.BringToFront();
+                    form.Controls.Add(picture);
                     break;
                 case 2:
                     health = 7;
@@ -54,6 +56,50 @@ namespace Snakes
                     picture.Image = Properties.Resources.big;
                     picture.SizeMode = PictureBoxSizeMode.AutoSize;
                     picture.BackColor = Color.Transparent;
+                    picture.BringToFront();
+                    form.Controls.Add(picture);
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void Create()
+        {
+            Random rnd = new Random();
+            int version = rnd.Next(0, 100) % 3;
+            switch (version)
+            {
+                case 0:
+                    health = 5;
+                    speed = 10;
+                    damage = 5;
+                    picture.Location = GetLocation();
+                    picture.Image = Properties.Resources.normal;
+                    picture.SizeMode = PictureBoxSizeMode.AutoSize;
+                    picture.BackColor = Color.Transparent;
+                    picture.Tag = "zombie";
+                    picture.BringToFront();
+                    break;
+                case 1:
+                    health = 2;
+                    speed = 15;
+                    damage = 3;
+                    picture.Location = GetLocation();
+                    picture.Image = Properties.Resources.fast;
+                    picture.SizeMode = PictureBoxSizeMode.AutoSize;
+                    picture.BackColor = Color.Transparent;
+                    picture.Tag = "zombie";
+                    picture.BringToFront();
+                    break;
+                case 2:
+                    health = 7;
+                    speed = 7;
+                    damage = 10;
+                    picture.Location = GetLocation();
+                    picture.Image = Properties.Resources.big;
+                    picture.SizeMode = PictureBoxSizeMode.AutoSize;
+                    picture.BackColor = Color.Transparent;
+                    picture.Tag = "zombie";
                     picture.BringToFront();
                     break;
                 default:
@@ -84,11 +130,17 @@ namespace Snakes
         public void Smash(int damage)
         {
             Solo.health -= damage;
-            DoStaff();
+            Create();
+            StartMoving();
         }
         public void Die()
         {
             Create();
+        }
+
+        public void Stop()
+        {
+            speed = 0;
         }
     }
 }

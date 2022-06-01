@@ -14,7 +14,7 @@ namespace Snakes
     {
         //BulletCount.Text = countbullet.ToString();
         Graphics g;
-        bool moveUp, moveDown, shootRigth, gameOver = false;
+        bool moveUp, moveDown, gameOver = false;
         public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
@@ -33,34 +33,27 @@ namespace Snakes
             gropBoxAK47.Hide();
             groupBoxSniper.Hide();
             CharacterCreate();
-            Enemies();
-            
+            CreateEnemies();
         }
 
-        private async void Enemies()
+        private async void CreateEnemies()
         {
             for (int i = 0; i < 5; i++)
             {
                 Enemy enemy = new Enemy();
+                enemy.Create(this);
                 enemy.picture.Parent = Map;
-                enemy.DoStaff();
-
+                enemy.StartMoving();
+                enemyList.Add(enemy);
                 await Task.Delay(600);
             }
-            //while (true)
-            //{
-            //    Enemy en = new Enemy();
-            //    en.picture.Parent = Map;
-            //    en.DoStaff();
-            //    await Task.Delay(7000);
-            //}
         }
 
         private void CharacterCreate()
         {
             character.Location = new Point(x, y);
             character.Parent = Map;
-            Image image = Properties.Resources.Character;
+            Image image = Properties.Resources.Character_with_gun;
             character.Image = image;
             character.SizeMode = PictureBoxSizeMode.AutoSize;
             character.BackColor = Color.Transparent;
@@ -112,16 +105,50 @@ namespace Snakes
             
         }
 
-
         private void MoveTimerEvent(object sender, EventArgs e)
         {
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
-            if ((moveDown == true) && (character.Bottom <= 450))
-                character.Top += 105;
-            if ((moveUp == true) && (character.Top >= 100))
-                character.Top -= 105;
-            life.Text = health.ToString();
+            if (!gameOver)
+            {
+                if ((moveDown == true) && (character.Bottom <= 450))
+                    character.Top += 105;
+                if ((moveUp == true) && (character.Top >= 100))
+                    character.Top -= 105;
+                if (health >= 0)
+                {
+                    life.Text = health.ToString();
+                }
+                else
+                {
+                    gameOver = true;
+                    pictureGameOver.Visible = true;
+                    foreach (var zombi in enemyList)
+                        zombi.Stop();
+                    moveTimer.Stop();
+                }
+                foreach (Enemy zombie in enemyList)
+                {
+                    foreach (PictureBox j in Map.Controls)
+                    {
+                        if ((string)j.Tag == "bullet")
+                        {
+                            if (zombie.picture.Bounds.IntersectsWith(j.Bounds))
+                            {
+                                Map.Controls.Remove(j);
+                                ((PictureBox)j).Dispose();
+                                zombie.health --;              //УРОН ИЗМЕНИТЬ!!!
+                                if (zombie.health == 0)
+                                {
+                                    balance += 100;             // СЧЕТЧИК ДЛЯ СКОРА!!!!
+                                    zombie.Die();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
 
             private void AddMoney_Click(object sender, EventArgs e)
@@ -146,35 +173,59 @@ namespace Snakes
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
-                moveDown = true;
-            if (e.KeyCode == Keys.Up)
-                moveUp = true;
-            if (e.KeyCode == Keys.Right)
-                shootRigth = true;
+            if (!gameOver)
+            {
+                if (e.KeyCode == Keys.Down)
+                    moveDown = true;
+                if (e.KeyCode == Keys.Up)
+                    moveUp = true;
+            }
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
-                moveDown = false;
-            if (e.KeyCode == Keys.Up)
-                moveUp = false;
-            if (e.KeyCode == Keys.Right)
-                shootRigth = false;
+            if (!gameOver)
+            {
+                if (e.KeyCode == Keys.Down)
+                    moveDown = false;
+                if (e.KeyCode == Keys.Up)
+                    moveUp = false;
+                if (e.KeyCode == Keys.Right && countbullet >= 0)
+                {
+                    //countbullet--;
+                    ShootBullet();
+                }
+            }
         }
 
         private void Restart()
         {
-            for (int i = 0; i < enemyList.Count(); i++)
+            foreach (Enemy zombi in enemyList)
             {
-                enemyList[i].Die();
+                Map.Controls.Remove(zombi.picture);
+                zombi.Stop();
             }
-
-            //Enemies();
-
-            health = 100;
+            enemyList.Clear();
+            CreateEnemies();
+            countbullet = 5;
+            gropBoxAK47.Hide();
+            groupBoxSniper.Hide();
+            health = 2;
             balance = 0;
+            idGuns = 1;
+            pictureGameOver.Visible = false;
+            gameOver = false;
+            moveTimer.Start();
+        }
+
+        private void ShootBullet()
+        {
+            Bullet shootBullet = new Bullet();
+            
+            shootBullet.bulletLeft = character.Left + (character.Width / 2);
+            shootBullet.bulletTop = character.Top + (character.Height / 2);
+            shootBullet.MakeBullet(this);
+            shootBullet.bullet.Parent = Map;
         }
     }
 }
