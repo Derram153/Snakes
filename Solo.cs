@@ -14,11 +14,11 @@ namespace Snakes
     {
         //BulletCount.Text = countbullet.ToString();
         Graphics g;
-        bool moveUp, moveDown, shootRigth;
+        bool moveUp, moveDown, shootRigth, gameOver = false;
         public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
-        Enemy[] enemy = new Enemy[5];
+        List<Enemy> enemyList = new List<Enemy>();
         public static int countbullet;
         
         //передача данных
@@ -27,18 +27,11 @@ namespace Snakes
         
         public Solo()
         {
-            //Random random = new Random();
-            //LehmerRng rng = new LehmerRng(random.Next(1, 50));
-            //int[] vs = new int[100];
-            //for (int i = 0; i < 100; i++)
-            //vs[i]=Convert.ToInt32((rng.Next()*50%4));
             Program.solo = this;
             InitializeComponent();
-            //
             countbullet = 5;
             gropBoxAK47.Hide();
             groupBoxSniper.Hide();
-            // BulletCount.Text = countbullet.ToString();
             CharacterCreate();
             Enemies();
             
@@ -48,9 +41,10 @@ namespace Snakes
         {
             for (int i = 0; i < 5; i++)
             {
-                enemy[i] = new Enemy();
-                enemy[i].picture.Parent = Map;
-                enemy[i].DoStaff();
+                Enemy enemy = new Enemy();
+                enemy.picture.Parent = Map;
+                enemy.DoStaff();
+
                 await Task.Delay(600);
             }
             //while (true)
@@ -140,7 +134,7 @@ namespace Snakes
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            Enemies();
+            Restart();
             labelFocusRemover.Focus();
         }
 
@@ -168,6 +162,19 @@ namespace Snakes
                 moveUp = false;
             if (e.KeyCode == Keys.Right)
                 shootRigth = false;
+        }
+
+        private void Restart()
+        {
+            for (int i = 0; i < enemyList.Count(); i++)
+            {
+                enemyList[i].Die();
+            }
+
+            //Enemies();
+
+            health = 100;
+            balance = 0;
         }
     }
 }
