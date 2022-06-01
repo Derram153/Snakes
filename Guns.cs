@@ -65,9 +65,9 @@ namespace Snakes
                 case 1:
                     return 3000;
                 case 2:
-                    return 9000;
+                    return 4000;
                 case 3:
-                    return 5000;
+                    return 3000;
             }
             return 0;
         }
@@ -75,29 +75,39 @@ namespace Snakes
         {
             switch (id)
             {
-                //case 1:
+                case 1:
+                   // Program.solo.groupBoxBullet.Show();
+                   // Solo.countbullet = 0;
+                    Program.solo.groupBoxMachinegun.Hide();
+                    Program.solo.gropBoxAK47.Hide();
+                    Program.solo.groupBoxSniper.Hide();
+                   // Program.solo.groupBoxPistol.Show();
+                    break;
                 case 2:
                     Program.solo.groupBoxBullet.Hide();
+                    Program.solo.reload.Enabled = true;
                     Solo.countbullet = 0;
-                    //Program.solo.groupBoxMachinegun.Hide();
+                    Program.solo.groupBoxMachinegun.Hide();
                     Program.solo.groupBoxPistol.Hide();
                     Program.solo.groupBoxSniper.Hide();
                     Program.solo.gropBoxAK47.Show();
                     break;
                 case 3:
                     Program.solo.groupBoxBullet.Hide();
+                    Program.solo.reload.Enabled = true;
                     Solo.countbullet = 0;
-                    //Program.solo.groupBoxMachinegun.Hide();
+                    Program.solo.groupBoxMachinegun.Hide();
                     Program.solo.gropBoxAK47.Hide();
                     Program.solo.groupBoxPistol.Hide();
                     Program.solo.groupBoxSniper.Show();
                     break;
                 case 4:
-                    Program.solo.groupBoxBullet.Hide();
-                    Solo.countbullet = 0;
+                    //Program.solo.groupBoxBullet.Hide();
+                    Solo.countbullet = 100;
+                    Program.solo.reload.Enabled = false;
                     Program.solo.gropBoxAK47.Hide();
                     Program.solo.groupBoxPistol.Hide();
-                    //Program.solo.groupBoxMachinegun.Show();
+                    Program.solo.groupBoxMachinegun.Show();
                     break;
             }
         }

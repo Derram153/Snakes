@@ -35,8 +35,9 @@ namespace Snakes
             InitializeComponent();
             //1 - пистолет, 2 - автомат, 3 - снайперка
             Guns.Bullets();
-            gropBoxAK47.Hide();
-            groupBoxSniper.Hide();
+            Guns.Buying();
+            //gropBoxAK47.Hide();
+            //groupBoxSniper.Hide();
             // BulletCount.Text = countbullet.ToString();
             CharacterCreate();
             Enemies();
@@ -91,9 +92,8 @@ namespace Snakes
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            //проверка открыта ли форма
             Shop shop = new Shop();
-            if (Application.OpenForms.OfType<Shop>().Count() == 1)
+            if (Application.OpenForms.OfType<Shop>().Count() == 1) //проверка открыта ли форма
                 Application.OpenForms.OfType<Shop>().First().Close();
             labelFocusRemover.Focus();
             shop.Show();
@@ -105,8 +105,12 @@ namespace Snakes
             countbullet = 0;
             groupBoxBullet.Hide();
             reload.Enabled = false;
+            shopButton.Enabled = false;
+            if (Application.OpenForms.OfType<Shop>().Count() == 1)
+                Application.OpenForms.OfType<Shop>().First().Close();
             await Task.Delay(Guns.ReloadingTime());
             reload.Enabled = true;
+            shopButton.Enabled = true;
             groupBoxBullet.Show();
             labelFocusRemover.Focus();
             Guns.Bullets();
