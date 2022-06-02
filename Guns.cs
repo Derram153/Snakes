@@ -17,13 +17,32 @@ namespace Snakes
                 case 1:
                     return 1;
                 case 2:
-                    return 1;
+                    return 2;
                 case 3:
                     return 6;
                 case 4:
                     return 1;
             }
             return 0;
+        }
+        public static void Bonus()
+        {
+            switch (id)
+            {
+                case 1:
+                    if (Solo.score % 2 == 0)
+                        Solo.countbullet = 5;
+                    break;
+                case 2:
+                    if (Solo.score % 10 == 0)
+                        Solo.countbullet = 10;
+                    break;
+                case 3:
+                    Solo.countbullet += 1;
+                    break;
+                //case 4:
+                //   break;
+            }
         }
         public static int TimeBetweenShots()
         {
@@ -65,7 +84,7 @@ namespace Snakes
                 case 1:
                     return 1500;
                 case 2:
-                    return 2000;
+                    return 2500;
                 case 3:
                     return 1500;
             }

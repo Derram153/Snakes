@@ -130,10 +130,11 @@ namespace Snakes
                                 Map.Controls.Remove(j);
                                 ((PictureBox)j).Dispose();
                                 zombie.health -= Guns.Damage();
-                                if (zombie.health == 0)
+                                if (zombie.health <= 0)
                                 {
                                     balance += 100;
-                                    score++; ;
+                                    score++;
+                                    Guns.Bonus();
                                     zombie.Die();
                                 }
                             }
@@ -186,6 +187,10 @@ namespace Snakes
                 {
                     countbullet--;
                     ShootBullet();
+                }
+                if(e.KeyCode == Keys.Left)
+                {
+                    reload.PerformClick();
                 }
             }
         }
