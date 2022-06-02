@@ -14,6 +14,7 @@ namespace Snakes
     {
         Graphics g;
         bool moveUp, moveDown, gameOver = false, shootRight;
+        public static bool bonusActive = false;
         public static int score = 0;//количество килов зомби
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
@@ -21,7 +22,7 @@ namespace Snakes
         public static int countbullet;
 
         //передача данных
-        public static int balance = 0;
+        public static int balance = 100000;
         public static int health = 100;
 
         public Solo()
@@ -106,12 +107,6 @@ namespace Snakes
                     character.Top += 105;
                 if ((moveUp == true) && (character.Top >= 100))
                     character.Top -= 105;
-                if ((shootRight == true) && (countbullet > 0))
-                {
-                    countbullet--;
-                    ShootBullet();
-                    await Task.Delay(Guns.ReloadingTime());
-                }
                 if (health >= 0)
                 {
                     life.Text = health.ToString();
@@ -142,6 +137,7 @@ namespace Snakes
                             zombie.health -= Guns.Damage();
                             if (zombie.health <= 0)
                             {
+                                Guns.Bonus();
                                 balance += 100;
                                 score++;
                                 zombie.Die();
@@ -171,8 +167,8 @@ namespace Snakes
         {
             Application.Exit();
         }
-
-        private void KeyIsDown(object sender, KeyEventArgs e)
+        private bool shoot = true;
+        private async void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (!gameOver)
             {
@@ -181,11 +177,35 @@ namespace Snakes
                 if (e.KeyCode == Keys.Up)
                     moveUp = true;
                 if (e.KeyCode == Keys.Right)
+                {
                     shootRight = true;
+                    if (shootRight == true && (countbullet > 0) && (!gameOver) && shoot == true)
+                    {
+                        countbullet--;
+                        ShootBullet();
+                        shoot = false;
+                        await Task.Delay(Guns.TimeBetweenShots());
+                        shoot = true;
+                    }
+                    //while (shootRight == true && (countbullet > 0) && (!gameOver))
+                    //{
+                    //    countbullet--;
+                    //    ShootBullet();
+                    //    await Task.Delay(Guns.TimeBetweenShots());
+                    //}
+                }
             }
         }
 
-        private void KeyIsUp(object sender, KeyEventArgs e)
+
+    //                if ((shootRight == true) && (countbullet > 0) && (!gameOver))
+        //               {
+        //               countbullet--;
+        //               ShootBullet();
+        //               await Task.Delay(Guns.TimeBetweenShots());
+        //               }
+
+    private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (!gameOver)
             {
