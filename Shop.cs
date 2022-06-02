@@ -12,8 +12,6 @@ namespace Snakes
 {
     public partial class Shop : Form
     {
-        //Program.solo.BulletCount.Text = countbullet.ToString();
-        //private static int balance = 0;
         public Shop()
         {
             InitializeComponent();
@@ -26,18 +24,12 @@ namespace Snakes
             int money = Convert.ToInt32(moneyshop.Text);
             if (money >= price)
             {
-                Solo.idGuns = 2;
-                Program.solo.groupBoxBullet.Hide();
-                Solo.countbullet = 0;
-                Program.solo.groupBoxPistol.Hide();
-                Program.solo.groupBoxSniper.Hide();
-                Program.solo.gropBoxAK47.Show();
+                Guns.id = 2;
+                Guns.Buying();
                 Solo.balance -= price;
                 moneyshop.Text = Solo.balance.ToString();
                 Close();
             }
-            //сделать чтобы изменения сразу отображались в "Деньги" в форме Solo
-            //или чтобы каждый раз при получении очков оно отображалось
         }
 
         private void Rifle_Click(object sender, EventArgs e)
@@ -46,13 +38,36 @@ namespace Snakes
             int money = Convert.ToInt32(moneyshop.Text);
             if (money >= price)
             {
-                Solo.idGuns = 3;
-                Program.solo.groupBoxBullet.Hide();
-                Solo.countbullet = 0;
-                Program.solo.gropBoxAK47.Hide();
-                Program.solo.groupBoxPistol.Hide();
-                Program.solo.groupBoxSniper.Show();
+                Guns.id = 3;
+                Guns.Buying();
                 Solo.balance -= price;
+                moneyshop.Text = Solo.balance.ToString();
+                Close();
+            }
+        }
+
+        private void machinegun_Click(object sender, EventArgs e)
+        {
+            int price = Convert.ToInt32(price3.Text);
+            int money = Convert.ToInt32(moneyshop.Text);
+            if (money >= price)
+            {
+                Guns.id = 4;
+                Guns.Buying();
+                Solo.balance -= price;
+                moneyshop.Text = Solo.balance.ToString();
+                Close();
+            }
+        }
+
+        private void Repair_Click(object sender, EventArgs e)
+        {
+            int price = Convert.ToInt32(price4.Text);
+            int money = Convert.ToInt32(moneyshop.Text);
+            if (money >= price)
+            {
+                Solo.balance -= price;
+                Solo.health += 10;
                 moneyshop.Text = Solo.balance.ToString();
                 Close();
             }

@@ -12,61 +12,48 @@ namespace Snakes
 {
     public partial class Solo : Form
     {
-        //BulletCount.Text = countbullet.ToString();
         Graphics g;
-        bool moveUp, moveDown, shootRigth;
-        public static int idGuns = 1; //1 - пистолет, 2 - автомат, 3 - снайперка
+        bool moveUp, moveDown, gameOver = false;
+        public static int score = 0;//количество килов зомби
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
-        Enemy[] enemy = new Enemy[5];
+        List<Enemy> enemyList = new List<Enemy>();
         public static int countbullet;
-        
+
         //передача данных
         public static int balance = 0;
         public static int health = 100;
-        
+
         public Solo()
         {
-            //Random random = new Random();
-            //LehmerRng rng = new LehmerRng(random.Next(1, 50));
-            //int[] vs = new int[100];
-            //for (int i = 0; i < 100; i++)
-            //vs[i]=Convert.ToInt32((rng.Next()*50%4));
             Program.solo = this;
             InitializeComponent();
-            //
-            countbullet = 5;
-            gropBoxAK47.Hide();
-            groupBoxSniper.Hide();
+            //1 - пистолет, 2 - автомат, 3 - снайперка
+            Guns.Bullets();
+            Guns.Buying();
             // BulletCount.Text = countbullet.ToString();
             CharacterCreate();
-            Enemies();
-            
+            CreateEnemies();
         }
 
-        private async void Enemies()
+        private async void CreateEnemies()
         {
             for (int i = 0; i < 5; i++)
             {
-                enemy[i] = new Enemy();
-                enemy[i].picture.Parent = Map;
-                enemy[i].DoStaff();
+                Enemy enemy = new Enemy();
+                enemy.Create(this);
+                enemy.picture.Parent = Map;
+                enemy.StartMoving();
+                enemyList.Add(enemy);
                 await Task.Delay(600);
             }
-            //while (true)
-            //{
-            //    Enemy en = new Enemy();
-            //    en.picture.Parent = Map;
-            //    en.DoStaff();
-            //    await Task.Delay(7000);
-            //}
         }
 
         private void CharacterCreate()
         {
             character.Location = new Point(x, y);
             character.Parent = Map;
-            Image image = Properties.Resources.Character;
+            Image image = Properties.Resources.Character_with_gun;
             character.Image = image;
             character.SizeMode = PictureBoxSizeMode.AutoSize;
             character.BackColor = Color.Transparent;
@@ -83,54 +70,80 @@ namespace Snakes
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            //проверка открыта ли форма
             Shop shop = new Shop();
-            if (Application.OpenForms.OfType<Shop>().Count() == 1)
+            if (Application.OpenForms.OfType<Shop>().Count() == 1) //проверка открыта ли форма
                 Application.OpenForms.OfType<Shop>().First().Close();
             labelFocusRemover.Focus();
             shop.Show();
-            
+
         }
 
         private async void Reload_Click(object sender, EventArgs e)
         {
             countbullet = 0;
-            //BulletCount.Text = countbullet.ToString();
             groupBoxBullet.Hide();
             reload.Enabled = false;
-            await Task.Delay(5000);
+            shopButton.Enabled = false;
+            if (Application.OpenForms.OfType<Shop>().Count() == 1)
+                Application.OpenForms.OfType<Shop>().First().Close();
+            await Task.Delay(Guns.ReloadingTime());
             reload.Enabled = true;
+            shopButton.Enabled = true;
             groupBoxBullet.Show();
             labelFocusRemover.Focus();
-            //BulletCount.Text = countbullet.ToString();
-            switch (idGuns)
-            {
-                case 1:
-                    countbullet = 5;
-                    break;
-                case 2:
-                    countbullet = 10;
-                    break;
-                case 3:
-                    countbullet = 3;
-                    break;
-            }
-            
+            Guns.Bullets();
         }
-
 
         private void MoveTimerEvent(object sender, EventArgs e)
         {
+            scorelable.Text = score.ToString();
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
-            if ((moveDown == true) && (character.Bottom <= 450))
-                character.Top += 105;
-            if ((moveUp == true) && (character.Top >= 100))
-                character.Top -= 105;
-            life.Text = health.ToString();
+            if (Guns.id == 4) reload.Enabled = false;
+            if (!gameOver)
+            {
+                if ((moveDown == true) && (character.Bottom <= 450))
+                    character.Top += 105;
+                if ((moveUp == true) && (character.Top >= 100))
+                    character.Top -= 105;
+                if (health >= 0)
+                {
+                    life.Text = health.ToString();
+                }
+                else
+                {
+                    gameOver = true;
+                    pictureGameOver.Visible = true;
+                    foreach (var zombi in enemyList)
+                        zombi.Stop();
+                    moveTimer.Stop();
+                }
+
+                foreach (PictureBox j in Map.Controls)
+                {
+                    if ((string)j.Tag == "bullet")
+                    {
+                        foreach (Enemy zombie in enemyList)
+                        {
+                            if (zombie.picture.Bounds.IntersectsWith(j.Bounds))
+                            {
+                                Map.Controls.Remove(j);
+                                ((PictureBox)j).Dispose();
+                                zombie.health -= Guns.Damage();
+                                if (zombie.health == 0)
+                                {
+                                    balance += 100;
+                                    score++; ;
+                                    zombie.Die();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
-            private void AddMoney_Click(object sender, EventArgs e)
+        private void AddMoney_Click(object sender, EventArgs e)
         {
             balance += 1000;
             money.Text = balance.ToString();
@@ -140,7 +153,7 @@ namespace Snakes
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            Enemies();
+            Restart();
             labelFocusRemover.Focus();
         }
 
@@ -152,22 +165,61 @@ namespace Snakes
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
-                moveDown = true;
-            if (e.KeyCode == Keys.Up)
-                moveUp = true;
-            if (e.KeyCode == Keys.Right)
-                shootRigth = true;
+            if (!gameOver)
+            {
+                if (e.KeyCode == Keys.Down)
+                    moveDown = true;
+                if (e.KeyCode == Keys.Up)
+                    moveUp = true;
+            }
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
-                moveDown = false;
-            if (e.KeyCode == Keys.Up)
-                moveUp = false;
-            if (e.KeyCode == Keys.Right)
-                shootRigth = false;
+            if (!gameOver)
+            {
+                if (e.KeyCode == Keys.Down)
+                    moveDown = false;
+                if (e.KeyCode == Keys.Up)
+                    moveUp = false;
+                if (e.KeyCode == Keys.Right && countbullet > 0)
+                {
+                    countbullet--;
+                    ShootBullet();
+                }
+            }
+        }
+
+        private void Restart()
+        {
+            foreach (Enemy zombi in enemyList)
+            {
+                Map.Controls.Remove(zombi.picture);
+                zombi.Stop();
+            }
+            enemyList.Clear();
+            CreateEnemies();
+            countbullet = 5;
+            gropBoxAK47.Hide();
+            groupBoxSniper.Hide();
+            health = 2;
+            balance = 0;
+            score = 0;
+            Guns.id = 1;
+            pictureGameOver.Visible = false;
+            gameOver = false;
+            moveTimer.Start();
+        }
+
+        private void ShootBullet()
+        {
+            Bullet shootBullet = new Bullet();
+
+            shootBullet.bulletLeft = character.Left + (character.Width / 2);
+            shootBullet.bulletTop = character.Top + (character.Height / 2);
+            shootBullet.MakeBullet(this);
+            shootBullet.bullet.Parent = Map;
         }
     }
 }
+

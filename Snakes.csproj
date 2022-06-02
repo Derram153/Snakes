@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="Guns.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +138,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cherep_Skull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Character_with_gun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\пулемет.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\аптечка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Character1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Character2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Character3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
