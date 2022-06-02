@@ -93,7 +93,7 @@
             this.price4.Name = "price4";
             this.price4.Size = new System.Drawing.Size(31, 13);
             this.price4.TabIndex = 8;
-            this.price4.Text = "2000";
+            this.price4.Text = "1000";
             // 
             // Repair
             // 

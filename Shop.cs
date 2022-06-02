@@ -22,6 +22,7 @@ namespace Snakes
         {
             int price = Convert.ToInt32(price1.Text);
             int money = Convert.ToInt32(moneyshop.Text);
+
             if (money >= price)
             {
                 Guns.id = 2;
