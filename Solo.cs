@@ -196,6 +196,11 @@ namespace Snakes
                 if (e.KeyCode == Keys.Right)
                     shootRight = false;
                 
+
+                if(e.KeyCode == Keys.Left)
+                {
+                    reload.PerformClick();
+                }
             }
         }
 
