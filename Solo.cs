@@ -94,7 +94,7 @@ namespace Snakes
             Guns.Bullets();
         }
 
-        private async void MoveTimerEvent(object sender, EventArgs e)
+        private void MoveTimerEvent(object sender, EventArgs e)
         {
             scorelable.Text = score.ToString();
             BulletCount.Text = countbullet.ToString();
@@ -106,12 +106,6 @@ namespace Snakes
                     character.Top += 105;
                 if ((moveUp == true) && (character.Top >= 100))
                     character.Top -= 105;
-                if ((shootRight == true) && (countbullet > 0))
-                {
-                    countbullet--;
-                    ShootBullet();
-                    await Task.Delay(Guns.ReloadingTime());
-                }
                 if (health >= 0)
                 {
                     life.Text = health.ToString();
@@ -127,8 +121,14 @@ namespace Snakes
             }
         }
 
-        private void ShootTimerEvent(object sender, EventArgs e)
+        private async void ShootTimerEvent(object sender, EventArgs e)
         {
+            if ((shootRight == true) && (countbullet > 0) && (!gameOver))
+            {
+                countbullet--;
+                ShootBullet();
+                await Task.Delay(Guns.TimeBetweenShots());
+            }
             foreach (PictureBox j in Map.Controls)
             {
                 if ((string)j.Tag == "bullet")

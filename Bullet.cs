@@ -12,14 +12,14 @@ namespace Snakes
     {
         public int bulletLeft;
         public int bulletTop;
-        private int speed = 25;
+        private int speed = 35;
         public PictureBox bullet = new PictureBox();
         private Timer bulletTimer = new Timer();
 
         public void MakeBullet(Form form)
         {
-            bullet.BackColor = Color.White;
-            bullet.Size = new Size(5, 5);
+            bullet.BackColor = Color.Yellow;
+            bullet.Size = new Size(2, 2);
             bullet.Tag = "bullet";
             bullet.Left = bulletLeft;
             bullet.Top = bulletTop;
