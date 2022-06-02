@@ -49,7 +49,7 @@ namespace Snakes
             switch (id)
             {
                 case 1:
-                    return 1000;
+                    return 2000;
                 case 2:
                     return 200;
                 case 3:

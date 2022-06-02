@@ -121,14 +121,8 @@ namespace Snakes
             }
         }
 
-        private async void ShootTimerEvent(object sender, EventArgs e)
+        private void ShootTimerEvent(object sender, EventArgs e)
         {
-            if ((shootRight == true) && (countbullet > 0) && (!gameOver))
-            {
-                countbullet--;
-                ShootBullet();
-                await Task.Delay(Guns.TimeBetweenShots());
-            }
             foreach (PictureBox j in Map.Controls)
             {
                 if ((string)j.Tag == "bullet")
@@ -170,6 +164,20 @@ namespace Snakes
         private void Solo_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private bool shoot = true;
+        private async void BulletShootEvent(object sender, EventArgs e)
+        {
+            //bulletShoot.Tick = Guns.TimeBetweenShots();
+            if ((shootRight == true) && (countbullet > 0) && (!gameOver) && shoot)
+            {
+                countbullet--;
+                ShootBullet();
+                shoot = false;
+                await Task.Delay(Guns.TimeBetweenShots());
+                shoot = true;
+            }
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)

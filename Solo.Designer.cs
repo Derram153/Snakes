@@ -57,7 +57,7 @@
             this.Map = new System.Windows.Forms.PictureBox();
             this.pictureGameOver = new System.Windows.Forms.PictureBox();
             this.shootTimer = new System.Windows.Forms.Timer(this.components);
-            this.groupBoxPistol.SuspendLayout();
+            this.bulletShoot = new System.Windows.Forms.Timer(this.components);
             this.groupBoxShop.SuspendLayout();
             this.groupBoxBullet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).BeginInit();
@@ -374,6 +374,11 @@
             this.shootTimer.Interval = 20;
             this.shootTimer.Tick += new System.EventHandler(this.ShootTimerEvent);
             // 
+            // bulletShoot
+            // 
+            this.bulletShoot.Enabled = true;
+            this.bulletShoot.Tick += new System.EventHandler(this.BulletShootEvent);
+            // 
             // Solo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,5 +454,6 @@
         private System.Windows.Forms.Label scorelable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer shootTimer;
+        private System.Windows.Forms.Timer bulletShoot;
     }
 }

@@ -12,7 +12,7 @@ namespace Snakes
     {
         public int bulletLeft;
         public int bulletTop;
-        private int speed = 35;
+        private int speed = 45;
         public PictureBox bullet = new PictureBox();
         private Timer bulletTimer = new Timer();
 
