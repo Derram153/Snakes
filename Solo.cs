@@ -13,7 +13,7 @@ namespace Snakes
     public partial class Solo : Form
     {
         Graphics g;
-        bool moveUp, moveDown, gameOver = false;
+        bool moveUp, moveDown, gameOver = false, shootRight;
         public static int score = 0;//количество килов зомби
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
@@ -94,7 +94,7 @@ namespace Snakes
             Guns.Bullets();
         }
 
-        private void MoveTimerEvent(object sender, EventArgs e)
+        private async void MoveTimerEvent(object sender, EventArgs e)
         {
             scorelable.Text = score.ToString();
             BulletCount.Text = countbullet.ToString();
@@ -106,6 +106,12 @@ namespace Snakes
                     character.Top += 105;
                 if ((moveUp == true) && (character.Top >= 100))
                     character.Top -= 105;
+                if ((shootRight == true) && (countbullet > 0))
+                {
+                    countbullet--;
+                    ShootBullet();
+                    await Task.Delay(Guns.ReloadingTime());
+                }
                 if (health >= 0)
                 {
                     life.Text = health.ToString();
@@ -118,24 +124,27 @@ namespace Snakes
                         zombi.Stop();
                     moveTimer.Stop();
                 }
+            }
+        }
 
-                foreach (PictureBox j in Map.Controls)
+        private void ShootTimerEvent(object sender, EventArgs e)
+        {
+            foreach (PictureBox j in Map.Controls)
+            {
+                if ((string)j.Tag == "bullet")
                 {
-                    if ((string)j.Tag == "bullet")
+                    foreach (Enemy zombie in enemyList)
                     {
-                        foreach (Enemy zombie in enemyList)
+                        if (zombie.picture.Bounds.IntersectsWith(j.Bounds))
                         {
-                            if (zombie.picture.Bounds.IntersectsWith(j.Bounds))
+                            Map.Controls.Remove(j);
+                            ((PictureBox)j).Dispose();
+                            zombie.health -= Guns.Damage();
+                            if (zombie.health <= 0)
                             {
-                                Map.Controls.Remove(j);
-                                ((PictureBox)j).Dispose();
-                                zombie.health -= Guns.Damage();
-                                if (zombie.health == 0)
-                                {
-                                    balance += 100;
-                                    score++; ;
-                                    zombie.Die();
-                                }
+                                balance += 100;
+                                score++;
+                                zombie.Die();
                             }
                         }
                     }
@@ -171,6 +180,8 @@ namespace Snakes
                     moveDown = true;
                 if (e.KeyCode == Keys.Up)
                     moveUp = true;
+                if (e.KeyCode == Keys.Right)
+                    shootRight = true;
             }
         }
 
@@ -182,11 +193,9 @@ namespace Snakes
                     moveDown = false;
                 if (e.KeyCode == Keys.Up)
                     moveUp = false;
-                if (e.KeyCode == Keys.Right && countbullet > 0)
-                {
-                    countbullet--;
-                    ShootBullet();
-                }
+                if (e.KeyCode == Keys.Right)
+                    shootRight = false;
+                
             }
         }
 
@@ -199,13 +208,12 @@ namespace Snakes
             }
             enemyList.Clear();
             CreateEnemies();
-            countbullet = 5;
-            gropBoxAK47.Hide();
-            groupBoxSniper.Hide();
-            health = 2;
+            Guns.id = 1;
+            Guns.Bullets();
+            Guns.Buying();
+            health = 100;
             balance = 0;
             score = 0;
-            Guns.id = 1;
             pictureGameOver.Visible = false;
             gameOver = false;
             moveTimer.Start();

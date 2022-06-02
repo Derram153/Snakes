@@ -15,7 +15,7 @@ namespace Snakes
             switch (id)
             {
                 case 1:
-                    return 1;
+                    return 4;
                 case 2:
                     return 1;
                 case 3:
