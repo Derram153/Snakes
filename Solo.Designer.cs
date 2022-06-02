@@ -58,7 +58,6 @@
             this.pictureGameOver = new System.Windows.Forms.PictureBox();
             this.shootTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBoxPistol.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.groupBoxShop.SuspendLayout();
             this.groupBoxBullet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).BeginInit();
