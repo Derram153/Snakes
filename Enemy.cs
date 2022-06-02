@@ -28,7 +28,7 @@ namespace Snakes
             {
                 case 0:
                     health = 5;
-                    speed = 10;
+                    speed = 7;
                     damage = 5;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.normal;
@@ -39,7 +39,7 @@ namespace Snakes
                     break;
                 case 1:
                     health = 2;
-                    speed = 15;
+                    speed = 10;
                     damage = 3;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.fast;
@@ -50,7 +50,7 @@ namespace Snakes
                     break;
                 case 2:
                     health = 7;
-                    speed = 7;
+                    speed = 5;
                     damage = 10;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.big;

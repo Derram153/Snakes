@@ -63,11 +63,11 @@ namespace Snakes
             switch (id)
             {
                 case 1:
-                    return 3000;
+                    return 1500;
                 case 2:
-                    return 4000;
+                    return 2000;
                 case 3:
-                    return 3000;
+                    return 1500;
             }
             return 0;
         }

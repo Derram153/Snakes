@@ -39,60 +39,44 @@
             this.moveTimer = new System.Windows.Forms.Timer(this.components);
             this.moneyLabel = new System.Windows.Forms.Label();
             this.groupBoxPistol = new System.Windows.Forms.GroupBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.groupBoxShop = new System.Windows.Forms.GroupBox();
             this.ResetButton = new System.Windows.Forms.Button();
             this.labelFocusRemover = new System.Windows.Forms.Label();
             this.gropBoxAK47 = new System.Windows.Forms.GroupBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.groupBoxSniper = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxBullet = new System.Windows.Forms.GroupBox();
+            this.bullet3 = new System.Windows.Forms.PictureBox();
+            this.bullet2 = new System.Windows.Forms.PictureBox();
+            this.bullet1 = new System.Windows.Forms.PictureBox();
             this.BulletCount = new System.Windows.Forms.Label();
             this.groupBoxReload = new System.Windows.Forms.GroupBox();
             this.groupBoxMachinegun = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBoxScore = new System.Windows.Forms.GroupBox();
             this.scorelable = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bullet3 = new System.Windows.Forms.PictureBox();
-            this.bullet2 = new System.Windows.Forms.PictureBox();
-            this.bullet1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Map = new System.Windows.Forms.PictureBox();
             this.pictureGameOver = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bullet3 = new System.Windows.Forms.PictureBox();
-            this.bullet2 = new System.Windows.Forms.PictureBox();
-            this.bullet1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.Map = new System.Windows.Forms.PictureBox();
             this.groupBoxPistol.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.groupBoxShop.SuspendLayout();
             this.gropBoxAK47.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.groupBoxSniper.SuspendLayout();
-            this.groupBoxBullet.SuspendLayout();
-            this.groupBoxReload.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureGameOver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBoxBullet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Map)).BeginInit();
-            this.groupBoxBullet.SuspendLayout();
             this.groupBoxReload.SuspendLayout();
             this.groupBoxMachinegun.SuspendLayout();
-            this.groupBoxScore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bullet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.groupBoxScore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Map)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGameOver)).BeginInit();
             this.SuspendLayout();
             // 
             // money
@@ -184,12 +168,23 @@
             // 
             this.groupBoxPistol.Controls.Add(this.pictureBox11);
             this.groupBoxPistol.Location = new System.Drawing.Point(222, 113);
-            this.groupBoxPistol.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxPistol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxPistol.Name = "groupBoxPistol";
-            this.groupBoxPistol.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxPistol.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxPistol.Size = new System.Drawing.Size(123, 94);
             this.groupBoxPistol.TabIndex = 12;
             this.groupBoxPistol.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::Snakes.Properties.Resources.пистолет;
+            this.pictureBox11.Location = new System.Drawing.Point(8, 25);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(149, 80);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 11;
+            this.pictureBox11.TabStop = false;
             // 
             // groupBoxShop
             // 
@@ -197,9 +192,9 @@
             this.groupBoxShop.Controls.Add(this.AddMoney);
             this.groupBoxShop.Controls.Add(this.ResetButton);
             this.groupBoxShop.Location = new System.Drawing.Point(12, 46);
-            this.groupBoxShop.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxShop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxShop.Name = "groupBoxShop";
-            this.groupBoxShop.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxShop.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxShop.Size = new System.Drawing.Size(191, 132);
             this.groupBoxShop.TabIndex = 13;
             this.groupBoxShop.TabStop = false;
@@ -208,7 +203,7 @@
             // 
             this.ResetButton.CausesValidation = false;
             this.ResetButton.Location = new System.Drawing.Point(136, 82);
-            this.ResetButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(51, 42);
             this.ResetButton.TabIndex = 15;
@@ -231,23 +226,45 @@
             // 
             this.gropBoxAK47.Controls.Add(this.pictureBox14);
             this.gropBoxAK47.Location = new System.Drawing.Point(222, 113);
-            this.gropBoxAK47.Margin = new System.Windows.Forms.Padding(2);
+            this.gropBoxAK47.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gropBoxAK47.Name = "gropBoxAK47";
-            this.gropBoxAK47.Padding = new System.Windows.Forms.Padding(2);
+            this.gropBoxAK47.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gropBoxAK47.Size = new System.Drawing.Size(157, 94);
             this.gropBoxAK47.TabIndex = 15;
             this.gropBoxAK47.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = global::Snakes.Properties.Resources.автомат2;
+            this.pictureBox14.Location = new System.Drawing.Point(11, 25);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(185, 78);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 19;
+            this.pictureBox14.TabStop = false;
             // 
             // groupBoxSniper
             // 
             this.groupBoxSniper.Controls.Add(this.pictureBox1);
             this.groupBoxSniper.Location = new System.Drawing.Point(222, 113);
-            this.groupBoxSniper.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxSniper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxSniper.Name = "groupBoxSniper";
-            this.groupBoxSniper.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxSniper.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxSniper.Size = new System.Drawing.Size(157, 94);
             this.groupBoxSniper.TabIndex = 17;
             this.groupBoxSniper.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Snakes.Properties.Resources.снайперка;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(185, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBoxBullet
             // 
@@ -259,6 +276,42 @@
             this.groupBoxBullet.Size = new System.Drawing.Size(97, 88);
             this.groupBoxBullet.TabIndex = 16;
             this.groupBoxBullet.TabStop = false;
+            // 
+            // bullet3
+            // 
+            this.bullet3.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet3.InitialImage = null;
+            this.bullet3.Location = new System.Drawing.Point(64, 10);
+            this.bullet3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bullet3.Name = "bullet3";
+            this.bullet3.Size = new System.Drawing.Size(20, 72);
+            this.bullet3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet3.TabIndex = 8;
+            this.bullet3.TabStop = false;
+            // 
+            // bullet2
+            // 
+            this.bullet2.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet2.InitialImage = null;
+            this.bullet2.Location = new System.Drawing.Point(36, 10);
+            this.bullet2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bullet2.Name = "bullet2";
+            this.bullet2.Size = new System.Drawing.Size(20, 72);
+            this.bullet2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet2.TabIndex = 7;
+            this.bullet2.TabStop = false;
+            // 
+            // bullet1
+            // 
+            this.bullet1.Image = global::Snakes.Properties.Resources.пуля1;
+            this.bullet1.InitialImage = null;
+            this.bullet1.Location = new System.Drawing.Point(8, 10);
+            this.bullet1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bullet1.Name = "bullet1";
+            this.bullet1.Size = new System.Drawing.Size(20, 72);
+            this.bullet1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet1.TabIndex = 6;
+            this.bullet1.TabStop = false;
             // 
             // BulletCount
             // 
@@ -275,9 +328,9 @@
             // 
             this.groupBoxReload.Controls.Add(this.reload);
             this.groupBoxReload.Location = new System.Drawing.Point(424, 113);
-            this.groupBoxReload.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxReload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxReload.Name = "groupBoxReload";
-            this.groupBoxReload.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxReload.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxReload.Size = new System.Drawing.Size(149, 94);
             this.groupBoxReload.TabIndex = 18;
             this.groupBoxReload.TabStop = false;
@@ -286,12 +339,22 @@
             // 
             this.groupBoxMachinegun.Controls.Add(this.pictureBox2);
             this.groupBoxMachinegun.Location = new System.Drawing.Point(222, 113);
-            this.groupBoxMachinegun.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxMachinegun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxMachinegun.Name = "groupBoxMachinegun";
-            this.groupBoxMachinegun.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxMachinegun.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxMachinegun.Size = new System.Drawing.Size(157, 94);
             this.groupBoxMachinegun.TabIndex = 19;
             this.groupBoxMachinegun.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(5, 20);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(139, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
             // 
             // groupBoxScore
             // 
@@ -300,9 +363,9 @@
             this.groupBoxScore.Controls.Add(this.scorelable);
             this.groupBoxScore.Controls.Add(this.label1);
             this.groupBoxScore.Location = new System.Drawing.Point(424, 25);
-            this.groupBoxScore.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxScore.Name = "groupBoxScore";
-            this.groupBoxScore.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxScore.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxScore.Size = new System.Drawing.Size(149, 94);
             this.groupBoxScore.TabIndex = 20;
             this.groupBoxScore.TabStop = false;
@@ -331,85 +394,12 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Счет:";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(5, 20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(139, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Snakes.Properties.Resources.снайперка;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(139, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
-            // bullet3
-            // 
-            this.bullet3.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet3.InitialImage = null;
-            this.bullet3.Location = new System.Drawing.Point(64, 8);
-            this.bullet3.Name = "bullet3";
-            this.bullet3.Size = new System.Drawing.Size(23, 80);
-            this.bullet3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet3.TabIndex = 8;
-            this.bullet3.TabStop = false;
-            // 
-            // bullet2
-            // 
-            this.bullet2.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet2.InitialImage = null;
-            this.bullet2.Location = new System.Drawing.Point(35, 8);
-            this.bullet2.Name = "bullet2";
-            this.bullet2.Size = new System.Drawing.Size(23, 80);
-            this.bullet2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet2.TabIndex = 7;
-            this.bullet2.TabStop = false;
-            // 
-            // bullet1
-            // 
-            this.bullet1.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet1.InitialImage = null;
-            this.bullet1.Location = new System.Drawing.Point(6, 8);
-            this.bullet1.Name = "bullet1";
-            this.bullet1.Size = new System.Drawing.Size(23, 80);
-            this.bullet1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet1.TabIndex = 6;
-            this.bullet1.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = global::Snakes.Properties.Resources.автомат2;
-            this.pictureBox14.Location = new System.Drawing.Point(8, 20);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(139, 63);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 19;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::Snakes.Properties.Resources.пистолет;
-            this.pictureBox11.Location = new System.Drawing.Point(6, 20);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(112, 65);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 11;
-            this.pictureBox11.TabStop = false;
-            // 
             // Map
             // 
             this.Map.BackColor = System.Drawing.SystemColors.Control;
             this.Map.Image = ((System.Drawing.Image)(resources.GetObject("Map.Image")));
-            this.Map.Location = new System.Drawing.Point(12, 210);
-            this.Map.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Map.Location = new System.Drawing.Point(16, 212);
+            this.Map.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Map.Name = "Map";
             this.Map.Size = new System.Drawing.Size(1094, 520);
             this.Map.TabIndex = 0;
@@ -419,101 +409,20 @@
             // pictureGameOver
             // 
             this.pictureGameOver.Image = global::Snakes.Properties.Resources.Cherep_Skull1;
-            this.pictureGameOver.Location = new System.Drawing.Point(807, 14);
+            this.pictureGameOver.Location = new System.Drawing.Point(578, 9);
             this.pictureGameOver.Name = "pictureGameOver";
-            this.pictureGameOver.Size = new System.Drawing.Size(150, 234);
-            this.pictureGameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureGameOver.Size = new System.Drawing.Size(129, 198);
+            this.pictureGameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureGameOver.TabIndex = 19;
             this.pictureGameOver.TabStop = false;
             this.pictureGameOver.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Snakes.Properties.Resources.снайперка;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
-            // bullet3
-            // 
-            this.bullet3.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet3.InitialImage = null;
-            this.bullet3.Location = new System.Drawing.Point(85, 10);
-            this.bullet3.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet3.Name = "bullet3";
-            this.bullet3.Size = new System.Drawing.Size(31, 98);
-            this.bullet3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet3.TabIndex = 8;
-            this.bullet3.TabStop = false;
-            // 
-            // bullet2
-            // 
-            this.bullet2.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet2.InitialImage = null;
-            this.bullet2.Location = new System.Drawing.Point(47, 10);
-            this.bullet2.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet2.Name = "bullet2";
-            this.bullet2.Size = new System.Drawing.Size(31, 98);
-            this.bullet2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet2.TabIndex = 7;
-            this.bullet2.TabStop = false;
-            // 
-            // bullet1
-            // 
-            this.bullet1.Image = global::Snakes.Properties.Resources.пуля1;
-            this.bullet1.InitialImage = null;
-            this.bullet1.Location = new System.Drawing.Point(8, 10);
-            this.bullet1.Margin = new System.Windows.Forms.Padding(4);
-            this.bullet1.Name = "bullet1";
-            this.bullet1.Size = new System.Drawing.Size(31, 98);
-            this.bullet1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bullet1.TabIndex = 6;
-            this.bullet1.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = global::Snakes.Properties.Resources.автомат2;
-            this.pictureBox14.Location = new System.Drawing.Point(11, 25);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(185, 78);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 19;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::Snakes.Properties.Resources.пистолет;
-            this.pictureBox11.Location = new System.Drawing.Point(8, 25);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(149, 80);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 11;
-            this.pictureBox11.TabStop = false;
-            // 
-            // Map
-            // 
-            this.Map.BackColor = System.Drawing.SystemColors.Control;
-            this.Map.Image = ((System.Drawing.Image)(resources.GetObject("Map.Image")));
-            this.Map.Location = new System.Drawing.Point(16, 259);
-            this.Map.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.Map.Name = "Map";
-            this.Map.Size = new System.Drawing.Size(1458, 640);
-            this.Map.TabIndex = 0;
-            this.Map.TabStop = false;
-            this.Map.Paint += new System.Windows.Forms.PaintEventHandler(this.Map_Paint);
             // 
             // Solo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1481, 908);
+            this.ClientSize = new System.Drawing.Size(1112, 738);
             this.Controls.Add(this.pictureGameOver);
             this.Controls.Add(this.groupBoxScore);
             this.Controls.Add(this.groupBoxMachinegun);
@@ -532,8 +441,8 @@
             this.Controls.Add(this.Map);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.MaximumSize = new System.Drawing.Size(1499, 955);
-            this.MinimumSize = new System.Drawing.Size(1499, 955);
+            this.MaximumSize = new System.Drawing.Size(1128, 783);
+            this.MinimumSize = new System.Drawing.Size(1128, 675);
             this.Name = "Solo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
@@ -541,22 +450,23 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             this.groupBoxPistol.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.groupBoxShop.ResumeLayout(false);
             this.gropBoxAK47.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.groupBoxSniper.ResumeLayout(false);
-            this.groupBoxBullet.ResumeLayout(false);
-            this.groupBoxReload.ResumeLayout(false);
-            this.groupBoxMachinegun.ResumeLayout(false);
-            this.groupBoxScore.ResumeLayout(false);
-            this.groupBoxScore.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBoxBullet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bullet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bullet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.groupBoxReload.ResumeLayout(false);
+            this.groupBoxMachinegun.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBoxScore.ResumeLayout(false);
+            this.groupBoxScore.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Map)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGameOver)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

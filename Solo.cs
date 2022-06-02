@@ -19,11 +19,11 @@ namespace Snakes
         public PictureBox character = new PictureBox();
         List<Enemy> enemyList = new List<Enemy>();
         public static int countbullet;
-        
+
         //передача данных
         public static int balance = 0;
         public static int health = 100;
-        
+
         public Solo()
         {
             Program.solo = this;
@@ -31,8 +31,6 @@ namespace Snakes
             //1 - пистолет, 2 - автомат, 3 - снайперка
             Guns.Bullets();
             Guns.Buying();
-            //gropBoxAK47.Hide();
-            //groupBoxSniper.Hide();
             // BulletCount.Text = countbullet.ToString();
             CharacterCreate();
             CreateEnemies();
@@ -77,7 +75,7 @@ namespace Snakes
                 Application.OpenForms.OfType<Shop>().First().Close();
             labelFocusRemover.Focus();
             shop.Show();
-            
+
         }
 
         private async void Reload_Click(object sender, EventArgs e)
@@ -101,6 +99,7 @@ namespace Snakes
             scorelable.Text = score.ToString();
             BulletCount.Text = countbullet.ToString();
             money.Text = balance.ToString();
+            if (Guns.id == 4) reload.Enabled = false;
             if (!gameOver)
             {
                 if ((moveDown == true) && (character.Bottom <= 450))
@@ -119,20 +118,22 @@ namespace Snakes
                         zombi.Stop();
                     moveTimer.Stop();
                 }
-                foreach (Enemy zombie in enemyList)
+
+                foreach (PictureBox j in Map.Controls)
                 {
-                    foreach (PictureBox j in Map.Controls)
+                    if ((string)j.Tag == "bullet")
                     {
-                        if ((string)j.Tag == "bullet")
+                        foreach (Enemy zombie in enemyList)
                         {
                             if (zombie.picture.Bounds.IntersectsWith(j.Bounds))
                             {
                                 Map.Controls.Remove(j);
                                 ((PictureBox)j).Dispose();
-                                zombie.health --;              //УРОН ИЗМЕНИТЬ!!!
+                                zombie.health -= Guns.Damage();
                                 if (zombie.health == 0)
                                 {
-                                    balance += 100;             // СЧЕТЧИК ДЛЯ СКОРА!!!!
+                                    balance += 100;
+                                    score++; ;
                                     zombie.Die();
                                 }
                             }
@@ -140,18 +141,9 @@ namespace Snakes
                     }
                 }
             }
-            
         }
 
-            if (Guns.id == 4) reload.Enabled = false;
-            if ((moveDown == true) && (character.Bottom <= 450))
-                character.Top += 105;
-            if ((moveUp == true) && (character.Top >= 100))
-                character.Top -= 105;
-            life.Text = health.ToString();
-        }
-
-            private void AddMoney_Click(object sender, EventArgs e)
+        private void AddMoney_Click(object sender, EventArgs e)
         {
             balance += 1000;
             money.Text = balance.ToString();
@@ -190,9 +182,9 @@ namespace Snakes
                     moveDown = false;
                 if (e.KeyCode == Keys.Up)
                     moveUp = false;
-                if (e.KeyCode == Keys.Right && countbullet >= 0)
+                if (e.KeyCode == Keys.Right && countbullet > 0)
                 {
-                    //countbullet--;
+                    countbullet--;
                     ShootBullet();
                 }
             }
@@ -212,7 +204,8 @@ namespace Snakes
             groupBoxSniper.Hide();
             health = 2;
             balance = 0;
-            idGuns = 1;
+            score = 0;
+            Guns.id = 1;
             pictureGameOver.Visible = false;
             gameOver = false;
             moveTimer.Start();
@@ -221,7 +214,7 @@ namespace Snakes
         private void ShootBullet()
         {
             Bullet shootBullet = new Bullet();
-            
+
             shootBullet.bulletLeft = character.Left + (character.Width / 2);
             shootBullet.bulletTop = character.Top + (character.Height / 2);
             shootBullet.MakeBullet(this);
@@ -229,3 +222,4 @@ namespace Snakes
         }
     }
 }
+
