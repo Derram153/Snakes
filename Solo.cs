@@ -14,6 +14,7 @@ namespace Snakes
     {
         Graphics g;
         bool moveUp, moveDown, gameOver = false, shootRight;
+        public static bool bonusActive = false;
         public static int score = 0;//количество килов зомби
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
@@ -94,7 +95,7 @@ namespace Snakes
             Guns.Bullets();
         }
 
-        private async void MoveTimerEvent(object sender, EventArgs e)
+        private void MoveTimerEvent(object sender, EventArgs e)
         {
             scorelable.Text = score.ToString();
             BulletCount.Text = countbullet.ToString();
@@ -106,12 +107,6 @@ namespace Snakes
                     character.Top += 105;
                 if ((moveUp == true) && (character.Top >= 100))
                     character.Top -= 105;
-                if ((shootRight == true) && (countbullet > 0))
-                {
-                    countbullet--;
-                    ShootBullet();
-                    await Task.Delay(Guns.ReloadingTime());
-                }
                 if (health >= 0)
                 {
                     life.Text = health.ToString();
@@ -142,6 +137,7 @@ namespace Snakes
                             zombie.health -= Guns.Damage();
                             if (zombie.health <= 0)
                             {
+                                Guns.Bonus();
                                 balance += 100;
                                 score++;
                                 zombie.Die();
@@ -170,6 +166,20 @@ namespace Snakes
         private void Solo_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private bool shoot = true;
+        private async void BulletShootEvent(object sender, EventArgs e)
+        {
+            //bulletShoot.Tick = Guns.TimeBetweenShots();
+            if ((shootRight == true) && (countbullet > 0) && (!gameOver) && shoot)
+            {
+                countbullet--;
+                ShootBullet();
+                shoot = false;
+                await Task.Delay(Guns.TimeBetweenShots());
+                shoot = true;
+            }
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
