@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shop));
             this.price1 = new System.Windows.Forms.Label();
             this.price2 = new System.Windows.Forms.Label();
@@ -39,6 +40,9 @@
             this.machinegun = new System.Windows.Forms.Button();
             this.rifle = new System.Windows.Forms.Button();
             this.automat = new System.Windows.Forms.Button();
+            this.Bonuses = new System.Windows.Forms.Button();
+            this.price5 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // price1
@@ -104,6 +108,7 @@
             this.Repair.Name = "Repair";
             this.Repair.Size = new System.Drawing.Size(96, 70);
             this.Repair.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.Repair, "Дает 10 жизней");
             this.Repair.UseVisualStyleBackColor = false;
             this.Repair.Click += new System.EventHandler(this.Repair_Click);
             // 
@@ -116,6 +121,7 @@
             this.machinegun.Name = "machinegun";
             this.machinegun.Size = new System.Drawing.Size(141, 48);
             this.machinegun.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.machinegun, "Большая скорострельность.\r\nПовышенный урон.\r\n100 патрон.\r\nНельзя перезаряжать.");
             this.machinegun.UseVisualStyleBackColor = false;
             this.machinegun.Click += new System.EventHandler(this.machinegun_Click);
             // 
@@ -128,6 +134,8 @@
             this.rifle.Name = "rifle";
             this.rifle.Size = new System.Drawing.Size(141, 48);
             this.rifle.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.rifle, "Низкая скорострельность.\r\n3 патрона.\r\nОчень высокий урон.\r\nБонус: каждое второе у" +
+        "бийство дает 1 патрон.");
             this.rifle.UseVisualStyleBackColor = false;
             this.rifle.Click += new System.EventHandler(this.Rifle_Click);
             // 
@@ -139,14 +147,41 @@
             this.automat.Name = "automat";
             this.automat.Size = new System.Drawing.Size(141, 50);
             this.automat.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.automat, "Большая скорострельность.\r\n10 патрон.\r\nБонус: каждое 10-е убийство дает 10 патрон" +
+        "");
             this.automat.UseVisualStyleBackColor = true;
             this.automat.Click += new System.EventHandler(this.Automat_Click);
+            // 
+            // Bonuses
+            // 
+            this.Bonuses.BackColor = System.Drawing.SystemColors.Control;
+            this.Bonuses.BackgroundImage = global::Snakes.Properties.Resources.бонус;
+            this.Bonuses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Bonuses.Location = new System.Drawing.Point(223, 63);
+            this.Bonuses.Name = "Bonuses";
+            this.Bonuses.Size = new System.Drawing.Size(96, 70);
+            this.Bonuses.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.Bonuses, "Бонус для текущего оружия. \r\nПри покупке оружия сбрасывается!\r\nБонус пистолета: к" +
+        "аждое второе убийство дает полную обойму.\r\n");
+            this.Bonuses.UseVisualStyleBackColor = false;
+            this.Bonuses.Click += new System.EventHandler(this.Bonuses_Click);
+            // 
+            // price5
+            // 
+            this.price5.AutoSize = true;
+            this.price5.Location = new System.Drawing.Point(325, 92);
+            this.price5.Name = "price5";
+            this.price5.Size = new System.Drawing.Size(31, 13);
+            this.price5.TabIndex = 11;
+            this.price5.Text = "3400";
             // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 221);
+            this.Controls.Add(this.price5);
+            this.Controls.Add(this.Bonuses);
             this.Controls.Add(this.Repair);
             this.Controls.Add(this.price4);
             this.Controls.Add(this.price3);
@@ -176,5 +211,8 @@
         private System.Windows.Forms.Label price3;
         private System.Windows.Forms.Label price4;
         private System.Windows.Forms.Button Repair;
+        private System.Windows.Forms.Button Bonuses;
+        private System.Windows.Forms.Label price5;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -15,33 +15,37 @@ namespace Snakes
             switch (id)
             {
                 case 1:
-                    return 4;
-                case 2:
-                    return 2;
-                case 3:
-                    return 6;
-                case 4:
                     return 1;
+                case 2:
+                    return 1;
+                case 3:
+                    return 4;
+                case 4:
+                    return 2;
             }
             return 0;
         }
         public static void Bonus()
         {
-            switch (id)
+            if (Solo.bonusActive == true)
             {
-                case 1:
-                    if (Solo.score % 2 == 0)
-                        Solo.countbullet = 5;
-                    break;
-                case 2:
-                    if (Solo.score % 10 == 0)
-                        Solo.countbullet = 10;
-                    break;
-                case 3:
-                    Solo.countbullet += 1;
-                    break;
-                //case 4:
-                //   break;
+                switch (id)
+                {
+                    case 1:
+                        if (Solo.score % 2 == 0)
+                            Solo.countbullet = 5;
+                        break;
+                    case 2:
+                        if (Solo.score % 10 == 0)
+                            Solo.countbullet = 10;
+                        break;
+                    case 3:
+                        if (Solo.score % 2 == 0)
+                            Solo.countbullet++;
+                        break;
+                        //case 4:
+                        //   break;
+                }
             }
         }
         public static int TimeBetweenShots()
@@ -49,13 +53,13 @@ namespace Snakes
             switch (id)
             {
                 case 1:
-                    return 2000;
+                    return 600;
                 case 2:
                     return 200;
                 case 3:
-                    return 2000;
+                    return 1000;
                 case 4:
-                    return 1;
+                    return 200;
             }
             return 0;
         }
@@ -95,12 +99,13 @@ namespace Snakes
             switch (id)
             {
                 case 1:
-                   // Program.solo.groupBoxBullet.Show();
+                    Program.solo.groupBoxBullet.Show();
                    // Solo.countbullet = 0;
                     Program.solo.groupBoxMachinegun.Hide();
                     Program.solo.gropBoxAK47.Hide();
                     Program.solo.groupBoxSniper.Hide();
-                   // Program.solo.groupBoxPistol.Show();
+                    Program.solo.groupBoxPistol.Show();
+                    Program.solo.character.Image = Properties.Resources.Character_with_gun;
                     break;
                 case 2:
                     Program.solo.groupBoxBullet.Hide();
@@ -110,6 +115,7 @@ namespace Snakes
                     Program.solo.groupBoxPistol.Hide();
                     Program.solo.groupBoxSniper.Hide();
                     Program.solo.gropBoxAK47.Show();
+                    Program.solo.character.Image = Properties.Resources.Character1;
                     break;
                 case 3:
                     Program.solo.groupBoxBullet.Hide();
@@ -119,6 +125,7 @@ namespace Snakes
                     Program.solo.gropBoxAK47.Hide();
                     Program.solo.groupBoxPistol.Hide();
                     Program.solo.groupBoxSniper.Show();
+                    Program.solo.character.Image = Properties.Resources.Character2;
                     break;
                 case 4:
                     //Program.solo.groupBoxBullet.Hide();
@@ -127,6 +134,7 @@ namespace Snakes
                     Program.solo.gropBoxAK47.Hide();
                     Program.solo.groupBoxPistol.Hide();
                     Program.solo.groupBoxMachinegun.Show();
+                    Program.solo.character.Image = Properties.Resources.Character3;
                     break;
             }
         }

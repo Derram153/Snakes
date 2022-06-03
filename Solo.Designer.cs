@@ -35,7 +35,6 @@
             this.healthLabel = new System.Windows.Forms.Label();
             this.life = new System.Windows.Forms.Label();
             this.reload = new System.Windows.Forms.Button();
-            this.AddMoney = new System.Windows.Forms.Button();
             this.moveTimer = new System.Windows.Forms.Timer(this.components);
             this.moneyLabel = new System.Windows.Forms.Label();
             this.groupBoxPistol = new System.Windows.Forms.GroupBox();
@@ -126,18 +125,6 @@
             this.reload.UseVisualStyleBackColor = true;
             this.reload.Click += new System.EventHandler(this.Reload_Click);
             // 
-            // AddMoney
-            // 
-            this.AddMoney.CausesValidation = false;
-            this.AddMoney.Location = new System.Drawing.Point(6, 82);
-            this.AddMoney.Name = "AddMoney";
-            this.AddMoney.Size = new System.Drawing.Size(129, 42);
-            this.AddMoney.TabIndex = 11;
-            this.AddMoney.TabStop = false;
-            this.AddMoney.Text = "добавить 1000";
-            this.AddMoney.UseVisualStyleBackColor = true;
-            this.AddMoney.Click += new System.EventHandler(this.AddMoney_Click);
-            // 
             // moveTimer
             // 
             this.moveTimer.Enabled = true;
@@ -169,7 +156,6 @@
             // groupBoxShop
             // 
             this.groupBoxShop.Controls.Add(this.shopButton);
-            this.groupBoxShop.Controls.Add(this.AddMoney);
             this.groupBoxShop.Controls.Add(this.ResetButton);
             this.groupBoxShop.Location = new System.Drawing.Point(12, 46);
             this.groupBoxShop.Margin = new System.Windows.Forms.Padding(2);
@@ -182,25 +168,24 @@
             // ResetButton
             // 
             this.ResetButton.CausesValidation = false;
-            this.ResetButton.Location = new System.Drawing.Point(136, 82);
+            this.ResetButton.Location = new System.Drawing.Point(6, 82);
             this.ResetButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(51, 42);
+            this.ResetButton.Size = new System.Drawing.Size(175, 42);
             this.ResetButton.TabIndex = 15;
             this.ResetButton.TabStop = false;
-            this.ResetButton.Text = "restart";
+            this.ResetButton.Text = "Начать сначала";
             this.ResetButton.UseVisualStyleBackColor = true;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // labelFocusRemover
             // 
             this.labelFocusRemover.AutoSize = true;
-            this.labelFocusRemover.Location = new System.Drawing.Point(682, 11);
+            this.labelFocusRemover.Location = new System.Drawing.Point(727, 9);
             this.labelFocusRemover.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFocusRemover.Name = "labelFocusRemover";
-            this.labelFocusRemover.Size = new System.Drawing.Size(35, 13);
+            this.labelFocusRemover.Size = new System.Drawing.Size(0, 13);
             this.labelFocusRemover.TabIndex = 14;
-            this.labelFocusRemover.Text = "label1";
             // 
             // gropBoxAK47
             // 
@@ -433,7 +418,6 @@
         public System.Windows.Forms.PictureBox bullet1;
         public System.Windows.Forms.PictureBox bullet2;
         public System.Windows.Forms.PictureBox bullet3;
-        private System.Windows.Forms.Button AddMoney;
         public System.Windows.Forms.Label money;
         private System.Windows.Forms.Timer moveTimer;
         private System.Windows.Forms.Label moneyLabel;

@@ -14,6 +14,7 @@ namespace Snakes
     {
         Graphics g;
         bool moveUp, moveDown, gameOver = false, shootRight;
+        public static bool bonusActive = false;
         public static int score = 0;//количество килов зомби
         int x = 16, y = 10;
         public PictureBox character = new PictureBox();
@@ -136,6 +137,7 @@ namespace Snakes
                             zombie.health -= Guns.Damage();
                             if (zombie.health <= 0)
                             {
+                                Guns.Bonus();
                                 balance += 100;
                                 score++;
                                 zombie.Die();

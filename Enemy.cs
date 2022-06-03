@@ -27,8 +27,8 @@ namespace Snakes
             switch (version)
             {
                 case 0:
-                    health = 5;
-                    speed = 7;
+                    health = 3;
+                    speed = 6;
                     damage = 5;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.normal;
@@ -38,8 +38,8 @@ namespace Snakes
                     form.Controls.Add(picture);
                     break;
                 case 1:
-                    health = 2;
-                    speed = 10;
+                    health = 1;
+                    speed = 15;
                     damage = 3;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.fast;
@@ -49,8 +49,8 @@ namespace Snakes
                     form.Controls.Add(picture);
                     break;
                 case 2:
-                    health = 7;
-                    speed = 5;
+                    health = 5;
+                    speed = 4;
                     damage = 10;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.big;
@@ -70,8 +70,8 @@ namespace Snakes
             switch (version)
             {
                 case 0:
-                    health = 5;
-                    speed = 10;
+                    health = 3;
+                    speed = 6;
                     damage = 5;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.normal;
@@ -81,7 +81,7 @@ namespace Snakes
                     picture.BringToFront();
                     break;
                 case 1:
-                    health = 2;
+                    health = 1;
                     speed = 15;
                     damage = 3;
                     picture.Location = GetLocation();
@@ -92,8 +92,8 @@ namespace Snakes
                     picture.BringToFront();
                     break;
                 case 2:
-                    health = 7;
-                    speed = 7;
+                    health = 5;
+                    speed = 4;
                     damage = 10;
                     picture.Location = GetLocation();
                     picture.Image = Properties.Resources.big;

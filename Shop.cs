@@ -22,9 +22,9 @@ namespace Snakes
         {
             int price = Convert.ToInt32(price1.Text);
             int money = Convert.ToInt32(moneyshop.Text);
-
             if (money >= price)
             {
+                Solo.bonusActive = false;
                 Guns.id = 2;
                 Guns.Buying();
                 Solo.balance -= price;
@@ -39,6 +39,7 @@ namespace Snakes
             int money = Convert.ToInt32(moneyshop.Text);
             if (money >= price)
             {
+                Solo.bonusActive = false;
                 Guns.id = 3;
                 Guns.Buying();
                 Solo.balance -= price;
@@ -53,6 +54,7 @@ namespace Snakes
             int money = Convert.ToInt32(moneyshop.Text);
             if (money >= price)
             {
+                Solo.bonusActive = false;
                 Guns.id = 4;
                 Guns.Buying();
                 Solo.balance -= price;
@@ -69,6 +71,19 @@ namespace Snakes
             {
                 Solo.balance -= price;
                 Solo.health += 10;
+                moneyshop.Text = Solo.balance.ToString();
+                Close();
+            }
+        }
+
+        private void Bonuses_Click(object sender, EventArgs e)
+        {
+            int price = Convert.ToInt32(price5.Text);
+            int money = Convert.ToInt32(moneyshop.Text);
+            if (money >= price)
+            {
+                Solo.balance -= price;
+                Solo.bonusActive = true;
                 moneyshop.Text = Solo.balance.ToString();
                 Close();
             }
