@@ -17,7 +17,7 @@ namespace Snakes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Solo());
+            Application.Run(new MainMenu());
         }
     }
     public class LehmerRng
